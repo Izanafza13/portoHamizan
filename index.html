@@ -30,6 +30,7 @@
     font-size:16px;
     line-height:1.6;
     -webkit-font-smoothing:antialiased;
+    overflow-x:hidden;
   }
   @media (prefers-reduced-motion: reduce){
     *{animation-duration:0.01ms !important; animation-iteration-count:1 !important; transition-duration:0.01ms !important; scroll-behavior:auto !important;}
@@ -68,7 +69,29 @@
     background:var(--gold); transition:width 0.25s ease;
   }
   .navlinks a:hover::after{width:100%;}
-  .navtoggle{display:none;}
+
+  /* mobile hamburger */
+  .navtoggle{
+    display:none; width:38px; height:38px; border-radius:50%;
+    border:1px solid var(--line); background:var(--paper-soft);
+    align-items:center; justify-content:center; cursor:pointer; flex-shrink:0;
+  }
+  .navtoggle svg{width:18px; height:18px; color:var(--ink);}
+  .navtoggle .icon-close{display:none;}
+  .navtoggle.open .icon-menu{display:none;}
+  .navtoggle.open .icon-close{display:block;}
+
+  .mobile-menu{
+    display:none; flex-direction:column; gap:2px;
+    max-height:0; overflow:hidden; transition:max-height 0.3s ease;
+    background:var(--paper-soft); border-top:1px solid var(--line);
+  }
+  .mobile-menu.open{max-height:320px;}
+  .mobile-menu a{
+    padding:15px 32px; font-size:15.5px; font-weight:500; color:var(--ink-soft);
+    border-bottom:1px solid var(--line);
+  }
+  .mobile-menu a:active{background:var(--paper);}
 
   /* ---------- HERO ---------- */
   .hero{
@@ -129,8 +152,9 @@
   .about-grid{display:grid; grid-template-columns:0.9fr 1.1fr; gap:56px; align-items:start;}
   .about-grid p{color:var(--ink-soft); font-size:16.5px; margin-bottom:16px;}
   .stat-list{display:flex; flex-direction:column; gap:22px;}
-  .stat{border-left:2px solid var(--gold); padding-left:18px;}
-  .stat .num{font-family:'Fraunces', serif; font-size:30px; font-weight:600; color:var(--teal);}
+  .about-stats{display:grid; grid-template-columns:repeat(4,1fr); gap:24px;}
+  .stat{border-left:2px solid var(--gold); padding-left:18px; min-width:0;}
+  .stat .num{font-family:'Fraunces', serif; font-size:30px; font-weight:600; color:var(--teal); word-break:break-word;}
   .stat .lab{font-size:13px; color:var(--ink-soft); text-transform:uppercase; letter-spacing:0.06em; font-family:'JetBrains Mono', monospace;}
 
   /* ---------- EXPERIENCE ---------- */
@@ -164,7 +188,7 @@
   .research p{color:#c7cfc4; font-size:15.5px; margin-bottom:14px;}
   .research-stats{display:flex; flex-direction:column; gap:20px; justify-content:center;}
   .rstat{border-top:1px solid rgba(255,255,255,0.14); padding-top:14px;}
-  .rstat .num{font-family:'Fraunces',serif; font-size:34px; color:var(--gold-soft); font-weight:600;}
+  .rstat .num{font-family:'Fraunces',serif; font-size:34px; color:var(--gold-soft); font-weight:600; word-break:break-word;}
   .rstat .lab{font-size:13px; color:#a9b3a1; font-family:'JetBrains Mono', monospace;}
   .algo-tags{display:flex; gap:8px; flex-wrap:wrap; margin-top:18px;}
   .algo-tags span{
@@ -217,6 +241,7 @@
   .contact-list a{
     font-family:'JetBrains Mono', monospace; font-size:14.5px; color:#dfe6d8;
     border-bottom:1px solid rgba(255,255,255,0.18); padding-bottom:10px; transition:color 0.2s;
+    word-break:break-word;
   }
   .contact-list a:hover{color:var(--gold-soft);}
   .foot-bottom{
@@ -261,6 +286,7 @@
     background:var(--paper-soft); border-radius:10px; padding:30px;
     max-width:760px; width:100%; max-height:88vh; overflow-y:auto; position:relative;
     box-shadow:0 30px 60px rgba(0,0,0,0.35);
+    -webkit-overflow-scrolling:touch;
   }
   .modal-close{
     position:absolute; top:16px; right:16px; width:34px; height:34px; border-radius:50%;
@@ -276,19 +302,46 @@
     border-radius:6px; border:1px solid var(--line); max-width:100%; height:auto; flex:1 1 280px;
   }
 
+  /* ================= RESPONSIVE ================= */
   @media (max-width: 860px){
     .navlinks{display:none;}
+    .navtoggle{display:flex;}
+    .mobile-menu{display:flex;}
     .hero-grid, .about-grid, .research, .footer-grid{grid-template-columns:1fr;}
+    .about-stats{grid-template-columns:repeat(2,1fr);}
     .edu-grid{grid-template-columns:1fr;}
     .skills-grid{grid-template-columns:1fr 1fr;}
     .cert-list{grid-template-columns:1fr;}
     .research{padding:36px 24px;}
     .furrows{height:220px; margin-top:20px;}
+    section{padding:64px 0;}
+    .hero{padding:48px 0 56px;}
   }
   @media (max-width: 520px){
     .wrap{padding:0 20px;}
+    nav{padding:14px 20px;}
+    .brand{font-size:16px;}
     .skills-grid{grid-template-columns:1fr;}
-    .hero{padding:80px 0 60px;}
+    .about-stats{grid-template-columns:1fr 1fr; gap:16px;}
+    .hero{padding:40px 0 44px;}
+    .hero p.lede{font-size:16px;}
+    .hero-cta{flex-direction:column; align-items:stretch;}
+    .hero-cta .btn{justify-content:center;}
+    .furrows{height:150px;}
+    section{padding:52px 0;}
+    .timeline{padding-left:20px;}
+    .tl-item::before{left:-24px;}
+    .sub-block{padding:16px;}
+    .research{padding:28px 18px;}
+    .research .algo-tags span{font-size:11px; padding:5px 10px;}
+    .card{padding:22px 20px;}
+    .gpa-row{gap:8px;}
+    .cert-row{flex-direction:column; gap:2px;}
+    .cert-row .cissuer{text-align:left;}
+    footer{padding:52px 0 26px;}
+    .foot-bottom{flex-direction:column; align-items:flex-start; gap:6px;}
+    .modal-box{padding:20px; max-height:92vh;}
+    .modal-images img{flex:1 1 100%;}
   }
 </style>
 </head>
@@ -304,7 +357,18 @@
       <a href="#keahlian">Keahlian</a>
       <a href="#kontak">Kontak</a>
     </div>
+    <button class="navtoggle" id="navToggle" aria-label="Buka menu" aria-expanded="false" onclick="toggleMobileMenu()">
+      <svg class="icon-menu" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+      <svg class="icon-close" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="6" y1="6" x2="18" y2="18"/><line x1="6" y1="18" x2="18" y2="6"/></svg>
+    </button>
   </nav>
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="#tentang" onclick="closeMobileMenu()">Tentang</a>
+    <a href="#pengalaman" onclick="closeMobileMenu()">Pengalaman</a>
+    <a href="#riset" onclick="closeMobileMenu()">Riset</a>
+    <a href="#keahlian" onclick="closeMobileMenu()">Keahlian</a>
+    <a href="#kontak" onclick="closeMobileMenu()">Kontak</a>
+  </div>
 </header>
 
 <section class="hero">
@@ -338,7 +402,7 @@
     </div>
   </div>
   <div class="wrap" style="margin-top:48px;">
-    <div class="stat-list" style="display:grid; grid-template-columns:repeat(4,1fr); gap:24px;">
+    <div class="about-stats">
       <div class="stat"><div class="num">1 Thn</div><div class="lab">Event & Komunikasi</div></div>
       <div class="stat"><div class="num">3</div><div class="lab">Program UKMFT ITC</div></div>
       <div class="stat"><div class="num">3.69</div><div class="lab">IPK Informatika</div></div>
@@ -567,6 +631,21 @@
     }
   })();
 
+  // ---------- Mobile nav ----------
+  function toggleMobileMenu(){
+    const btn = document.getElementById('navToggle');
+    const menu = document.getElementById('mobileMenu');
+    const isOpen = menu.classList.toggle('open');
+    btn.classList.toggle('open', isOpen);
+    btn.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+  }
+  function closeMobileMenu(){
+    document.getElementById('mobileMenu').classList.remove('open');
+    const btn = document.getElementById('navToggle');
+    btn.classList.remove('open');
+    btn.setAttribute('aria-expanded', 'false');
+  }
+
   // ---------- Certificate popup ----------
   // Ganti nilai di CERT_IMAGES ini dengan path/URL gambar sertifikat asli, contoh:
   // 'itc-charity': ['sertifikat/itc-charity.jpg']
@@ -611,6 +690,7 @@
     const modal = document.getElementById('certModal');
     modal.classList.add('open');
     document.body.style.overflow = 'hidden';
+    closeMobileMenu();
   }
 
   function closeCertModal(){
@@ -619,7 +699,7 @@
   }
 
   document.addEventListener('keydown', function(e){
-    if(e.key === 'Escape') closeCertModal();
+    if(e.key === 'Escape'){ closeCertModal(); closeMobileMenu(); }
   });
 </script>
 
