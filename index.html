@@ -3,704 +3,485 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Hamizan Afza Al Isyraqi | Portofolio</title>
+<title>Hamizan Afza Al Isyraqi — Portofolio</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&family=Inter:wght@400;500&display=swap" rel="stylesheet">
 <style>
-  :root{
-    --paper: #eef0e2;
-    --paper-soft: #f7f8f0;
-    --ink: #1b2b1e;
-    --ink-soft: #40503f;
-    --gold: #c99a2e;
-    --gold-soft: #e4c471;
-    --teal: #2f5d62;
-    --teal-soft: #4d7d81;
-    --line: rgba(27,43,30,0.14);
-    --white: #ffffff;
-    --radius: 4px;
-  }
-  *{box-sizing:border-box; margin:0; padding:0;}
-  html{scroll-behavior:smooth;}
-  body{
-    background:var(--paper);
-    color:var(--ink);
-    font-family:'Inter', sans-serif;
-    font-size:16px;
-    line-height:1.6;
-    -webkit-font-smoothing:antialiased;
-    overflow-x:hidden;
-  }
-  @media (prefers-reduced-motion: reduce){
-    *{animation-duration:0.01ms !important; animation-iteration-count:1 !important; transition-duration:0.01ms !important; scroll-behavior:auto !important;}
-  }
-  a{color:inherit; text-decoration:none;}
-  .wrap{max-width:1080px; margin:0 auto; padding:0 32px;}
-  .eyebrow{
-    font-family:'JetBrains Mono', monospace;
-    font-size:12.5px;
-    letter-spacing:0.14em;
-    text-transform:uppercase;
-    color:var(--teal);
-    font-weight:500;
-  }
-  h1,h2,h3{font-family:'Fraunces', serif; color:var(--ink); font-weight:600; letter-spacing:-0.01em;}
+:root{
+  --void:#06090a;
+  --panel:#0c1312;
+  --panel-2:#0f1917;
+  --card:#0d1614;
+  --stroke:rgba(200,255,220,0.10);
+  --stroke-strong:rgba(140,255,140,0.35);
+  --ink:#e6ece8;
+  --ink-dim:rgba(230,236,232,0.58);
+  --ink-faint:rgba(230,236,232,0.34);
+  --signal:#8dff6a;
+  --signal-dim:rgba(141,255,106,0.14);
+  --amber:#ffb347;
+  --danger:#ff6b5e;
 
-  /* ---------- NAV ---------- */
-  header{
-    position:sticky; top:0; z-index:50;
-    background:rgba(238,240,226,0.86);
-    backdrop-filter:blur(10px);
-    border-bottom:1px solid var(--line);
-  }
-  nav{
-    max-width:1080px; margin:0 auto; padding:18px 32px;
-    display:flex; align-items:center; justify-content:space-between;
-  }
-  .brand{font-family:'Fraunces', serif; font-weight:600; font-size:18px;}
-  .brand span{color:var(--gold);}
-  .navlinks{display:flex; gap:30px; font-size:14px; font-weight:500;}
-  .navlinks a{color:var(--ink-soft); position:relative; padding-bottom:3px;}
-  .navlinks a:hover{color:var(--ink);}
-  .navlinks a:focus-visible, a:focus-visible, button:focus-visible{outline:2px solid var(--teal); outline-offset:3px;}
-  .navlinks a::after{
-    content:''; position:absolute; left:0; bottom:-2px; width:0; height:1.5px;
-    background:var(--gold); transition:width 0.25s ease;
-  }
-  .navlinks a:hover::after{width:100%;}
+  --disp:'Chakra Petch', sans-serif;
+  --mono:'JetBrains Mono', ui-monospace, monospace;
+  --sans:'Inter', ui-sans-serif, sans-serif;
 
-  /* mobile hamburger */
-  .navtoggle{
-    display:none; width:38px; height:38px; border-radius:50%;
-    border:1px solid var(--line); background:var(--paper-soft);
-    align-items:center; justify-content:center; cursor:pointer; flex-shrink:0;
-  }
-  .navtoggle svg{width:18px; height:18px; color:var(--ink);}
-  .navtoggle .icon-close{display:none;}
-  .navtoggle.open .icon-menu{display:none;}
-  .navtoggle.open .icon-close{display:block;}
+  --display:clamp(38px,6vw,72px);
+  --h2:clamp(28px,3.6vw,40px);
+  --max:1140px;
+  --gap:88px;
+}
 
-  .mobile-menu{
-    display:none; flex-direction:column; gap:2px;
-    max-height:0; overflow:hidden; transition:max-height 0.3s ease;
-    background:var(--paper-soft); border-top:1px solid var(--line);
-  }
-  .mobile-menu.open{max-height:320px;}
-  .mobile-menu a{
-    padding:15px 32px; font-size:15.5px; font-weight:500; color:var(--ink-soft);
-    border-bottom:1px solid var(--line);
-  }
-  .mobile-menu a:active{background:var(--paper);}
+*{box-sizing:border-box;margin:0;padding:0;}
+html{scroll-behavior:smooth;}
+body{
+  font-family:var(--sans);
+  background:var(--void);
+  color:var(--ink);
+  font-size:16px;
+  line-height:1.62;
+  -webkit-font-smoothing:antialiased;
+  background-image:
+    linear-gradient(rgba(200,255,220,0.035) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(200,255,220,0.035) 1px, transparent 1px);
+  background-size:42px 42px;
+}
+a{color:inherit;text-decoration:none;}
+img{display:block;max-width:100%;}
+.w{max-width:var(--max);margin:0 auto;padding:0 32px;}
+h1,h2,h3{font-family:var(--disp);font-weight:600;letter-spacing:-0.01em;}
+:focus-visible{outline:2px solid var(--signal);outline-offset:3px;}
+button,input,textarea{font-family:inherit;}
 
-  /* ---------- HERO ---------- */
-  .hero{
-    padding:104px 0 88px;
-    position:relative;
-    overflow:hidden;
-  }
-  .hero-grid{
-    display:grid; grid-template-columns:1.15fr 0.85fr; gap:56px; align-items:center;
-  }
-  .hero h1{
-    font-size:clamp(38px, 5.4vw, 64px);
-    line-height:1.06;
-    margin:18px 0 22px;
-  }
-  .hero h1 em{font-style:italic; color:var(--teal); font-weight:500;}
-  .hero p.lede{
-    font-size:17.5px; color:var(--ink-soft); max-width:46ch; margin-bottom:34px;
-  }
-  .hero-cta{display:flex; gap:14px; flex-wrap:wrap;}
-  .btn{
-    display:inline-flex; align-items:center; gap:8px;
-    padding:13px 24px; border-radius:var(--radius);
-    font-weight:600; font-size:14.5px; letter-spacing:0.01em;
-    border:1px solid var(--ink); transition:all 0.2s ease;
-  }
-  .btn-primary{background:var(--ink); color:var(--paper-soft);}
-  .btn-primary:hover{background:var(--teal); border-color:var(--teal);}
-  .btn-ghost{background:transparent; color:var(--ink); border-color:var(--line);}
-  .btn-ghost:hover{border-color:var(--ink);}
+/* ---------- top strip ---------- */
+.strip{background:var(--panel);border-bottom:1px solid var(--stroke);}
+.strip .w{display:flex;align-items:center;justify-content:space-between;height:36px;font-family:var(--mono);font-size:11.5px;color:var(--ink-dim);}
+.strip .dot{width:6px;height:6px;border-radius:50%;background:var(--signal);display:inline-block;margin-right:8px;box-shadow:0 0 8px var(--signal);}
 
-  /* signature furrow / data-row visual */
-  .furrows{
-    position:relative; height:340px;
-    display:flex; align-items:flex-end; gap:7px; padding:0 4px;
-  }
-  .furrows .row{
-    flex:1; background:linear-gradient(180deg, var(--gold-soft), var(--gold));
-    border-radius:2px 2px 0 0;
-    transform-origin:bottom;
-    animation:grow 1.1s cubic-bezier(.2,.8,.2,1) both;
-  }
-  .furrows .row:nth-child(3n){background:linear-gradient(180deg, var(--teal-soft), var(--teal));}
-  .furrows .row:nth-child(5n){background:linear-gradient(180deg, #b7c79a, var(--ink-soft));}
-  @keyframes grow{from{transform:scaleY(0);} to{transform:scaleY(1);}}
-  .furrow-caption{
-    position:absolute; bottom:-30px; left:0; right:0;
-    font-family:'JetBrains Mono', monospace; font-size:11px; color:var(--ink-soft);
-    display:flex; justify-content:space-between; letter-spacing:0.04em;
-  }
+/* ---------- nav ---------- */
+nav{position:sticky;top:0;z-index:100;background:rgba(6,9,10,0.86);backdrop-filter:blur(10px);border-bottom:1px solid var(--stroke);height:66px;}
+nav .w{display:flex;align-items:center;justify-content:space-between;height:100%;}
+.brand{display:flex;align-items:center;gap:10px;font-family:var(--mono);font-size:14px;letter-spacing:0.02em;}
+.brand .id{width:9px;height:9px;background:var(--signal);box-shadow:0 0 10px var(--signal);flex:none;}
+.nav-links{display:flex;gap:26px;font-family:var(--mono);font-size:12.5px;color:var(--ink-dim);}
+.nav-links a{position:relative;padding:4px 2px;}
+.nav-links a:hover{color:var(--signal);}
+.btn{display:inline-flex;align-items:center;gap:8px;border:1px solid var(--stroke-strong);cursor:pointer;font-family:var(--mono);font-size:13px;border-radius:2px;padding:12px 20px;background:transparent;color:var(--ink);transition:all .18s ease;}
+.btn:hover{background:var(--signal-dim);border-color:var(--signal);color:var(--signal);}
+.btn-solid{background:var(--signal);border-color:var(--signal);color:#04140a;font-weight:600;}
+.btn-solid:hover{background:var(--ink);border-color:var(--ink);color:var(--void);}
+.nav-cta{display:none;}
+@media(min-width:760px){.nav-cta{display:inline-flex;}}
 
-  section{padding:88px 0;}
-  .section-head{margin-bottom:44px; max-width:60ch;}
-  .section-head h2{font-size:clamp(28px,3.4vw,38px); margin-top:10px;}
-  .divider{height:1px; background:var(--line); border:none;}
+/* ---------- hero ---------- */
+.hero{position:relative;padding:88px 0 70px;border-bottom:1px solid var(--stroke);overflow:hidden;}
+.hero .frame{position:absolute;inset:24px;border:1px solid var(--stroke);pointer-events:none;}
+.hero .frame::before,.hero .frame::after{content:'';position:absolute;width:18px;height:18px;border:2px solid var(--signal);opacity:0.7;}
+.hero .frame::before{top:-2px;left:-2px;border-right:none;border-bottom:none;}
+.hero .frame::after{bottom:-2px;right:-2px;border-left:none;border-top:none;}
+.hero .w{position:relative;z-index:1;display:grid;grid-template-columns:1.35fr 1fr;gap:52px;align-items:end;}
+.tag-line{font-family:var(--mono);font-size:13px;color:var(--signal);margin-bottom:16px;display:flex;align-items:center;gap:8px;}
+.tag-line .cursor{width:8px;height:15px;background:var(--signal);animation:blink 1s steps(1) infinite;}
+@keyframes blink{50%{opacity:0;}}
+.hero h1{font-size:var(--display);line-height:1.02;margin-bottom:22px;text-transform:uppercase;}
+.hero .role{font-size:17.5px;color:var(--ink-dim);max-width:540px;margin-bottom:30px;font-family:var(--sans);}
+.hero .actions{display:flex;flex-wrap:wrap;gap:14px;margin-bottom:40px;}
+.hero-meta{display:flex;gap:22px;flex-wrap:wrap;font-family:var(--mono);font-size:12.5px;color:var(--ink-dim);border-top:1px solid var(--stroke);padding-top:18px;}
+.hero-meta b{color:var(--signal);font-weight:500;}
 
-  /* ---------- ABOUT ---------- */
-  .about-grid{display:grid; grid-template-columns:0.9fr 1.1fr; gap:56px; align-items:start;}
-  .about-grid p{color:var(--ink-soft); font-size:16.5px; margin-bottom:16px;}
-  .stat-list{display:flex; flex-direction:column; gap:22px;}
-  .about-stats{display:grid; grid-template-columns:repeat(4,1fr); gap:24px;}
-  .stat{border-left:2px solid var(--gold); padding-left:18px; min-width:0;}
-  .stat .num{font-family:'Fraunces', serif; font-size:30px; font-weight:600; color:var(--teal); word-break:break-word;}
-  .stat .lab{font-size:13px; color:var(--ink-soft); text-transform:uppercase; letter-spacing:0.06em; font-family:'JetBrains Mono', monospace;}
+.hero-card{background:var(--panel-2);border:1px solid var(--stroke);border-radius:2px;padding:24px;position:relative;}
+.hero-card .corner{position:absolute;width:10px;height:10px;border:1px solid var(--stroke-strong);}
+.hero-card .corner.tl{top:-1px;left:-1px;border-right:none;border-bottom:none;}
+.hero-card .corner.br{bottom:-1px;right:-1px;border-left:none;border-top:none;}
+.hero-card .tag{display:inline-flex;align-items:center;gap:6px;font-family:var(--mono);font-size:11px;color:var(--amber);border:1px solid rgba(255,179,71,0.35);padding:5px 10px;border-radius:2px;margin-bottom:16px;}
+.hero-card .console{font-family:var(--mono);font-size:13px;color:var(--ink);background:var(--void);border:1px solid var(--stroke);border-radius:2px;padding:16px;line-height:2;margin-bottom:16px;}
+.hero-card .console .ok{color:var(--signal);text-shadow:0 0 8px var(--signal-dim);}
+.hero-card .console .k{color:var(--ink-faint);}
+.hero-card p.note{font-size:13.5px;color:var(--ink-dim);font-family:var(--sans);}
 
-  /* ---------- EXPERIENCE ---------- */
-  .timeline{position:relative; padding-left:28px; border-left:1px solid var(--line);}
-  .tl-item{position:relative; padding-bottom:46px;}
-  .tl-item:last-child{padding-bottom:0;}
-  .tl-item::before{
-    content:''; position:absolute; left:-33px; top:4px; width:9px; height:9px;
-    border-radius:50%; background:var(--gold); border:2px solid var(--paper);
-    box-shadow:0 0 0 1px var(--gold);
-  }
-  .tl-role{font-family:'JetBrains Mono', monospace; font-size:12.5px; color:var(--teal); letter-spacing:0.05em; text-transform:uppercase; margin-bottom:4px;}
-  .tl-item h3{font-size:21px; margin-bottom:3px;}
-  .tl-meta{font-size:13.5px; color:var(--ink-soft); margin-bottom:14px;}
-  .sub-block{margin-top:16px; padding:18px 20px; background:var(--white); border-radius:var(--radius); border:1px solid var(--line);}
-  .sub-block + .sub-block{margin-top:12px;}
-  .sub-block h4{font-family:'Inter',sans-serif; font-size:14.5px; font-weight:700; margin-bottom:8px;}
-  .sub-block h4 span{color:var(--ink-soft); font-weight:500; font-size:12.5px; display:block; margin-top:2px;}
-  .sub-block ul{padding-left:18px; color:var(--ink-soft); font-size:14.5px;}
-  .sub-block li{margin-bottom:5px;}
-  .tl-item > ul{padding-left:18px; color:var(--ink-soft); font-size:14.5px;}
-  .tl-item > ul li{margin-bottom:6px;}
+/* ---------- section shell ---------- */
+section{padding:var(--gap) 0;border-bottom:1px solid var(--stroke);}
+.sec-head{display:flex;align-items:flex-end;justify-content:space-between;gap:24px;margin-bottom:44px;}
+.sec-head .num{font-family:var(--mono);font-size:12.5px;color:var(--signal);display:block;margin-bottom:10px;letter-spacing:0.03em;}
+.sec-head h2{font-size:var(--h2);max-width:640px;text-transform:uppercase;}
+.sec-head p{max-width:300px;font-size:13.5px;color:var(--ink-dim);font-family:var(--mono);text-align:right;}
 
-  /* ---------- RESEARCH ---------- */
-  .research{
-    background:var(--ink); color:var(--paper-soft); border-radius:10px;
-    padding:56px; display:grid; grid-template-columns:1.1fr 0.9fr; gap:48px;
-  }
-  .research .eyebrow{color:var(--gold-soft);}
-  .research h2{color:var(--paper-soft); font-size:clamp(24px,3vw,32px); margin:14px 0 18px;}
-  .research p{color:#c7cfc4; font-size:15.5px; margin-bottom:14px;}
-  .research-stats{display:flex; flex-direction:column; gap:20px; justify-content:center;}
-  .rstat{border-top:1px solid rgba(255,255,255,0.14); padding-top:14px;}
-  .rstat .num{font-family:'Fraunces',serif; font-size:34px; color:var(--gold-soft); font-weight:600; word-break:break-word;}
-  .rstat .lab{font-size:13px; color:#a9b3a1; font-family:'JetBrains Mono', monospace;}
-  .algo-tags{display:flex; gap:8px; flex-wrap:wrap; margin-top:18px;}
-  .algo-tags span{
-    font-family:'JetBrains Mono', monospace; font-size:12px; padding:6px 12px;
-    border:1px solid rgba(255,255,255,0.22); border-radius:20px; color:#dfe6d8;
-  }
+/* ---------- about ---------- */
+.about-grid{display:grid;grid-template-columns:1.1fr 0.9fr;gap:48px;}
+.about-lead{font-family:var(--disp);font-size:25px;line-height:1.5;font-weight:500;color:var(--ink);}
+.about-lead .hl{color:var(--signal);}
+.about-side{display:flex;flex-direction:column;gap:0;border-top:1px solid var(--stroke);}
+.about-stat{display:flex;align-items:baseline;gap:16px;padding:16px 0;border-bottom:1px solid var(--stroke);}
+.about-stat .v{font-family:var(--mono);font-size:26px;color:var(--signal);flex:none;width:44px;}
+.about-stat .l{font-size:13.5px;color:var(--ink-dim);}
 
-  /* ---------- EDUCATION ---------- */
-  .edu-grid{display:grid; grid-template-columns:1fr 1fr; gap:24px;}
-  .card{background:var(--white); border:1px solid var(--line); border-radius:var(--radius); padding:26px 28px;}
-  .card h3{font-size:19px; margin-bottom:4px;}
-  .card .meta{font-size:13.5px; color:var(--ink-soft); margin-bottom:12px;}
-  .gpa-row{display:flex; align-items:center; gap:10px; margin-bottom:14px; flex-wrap:wrap;}
-  .gpa{
-    display:inline-block; font-family:'JetBrains Mono',monospace; font-size:12px;
-    background:var(--paper); padding:4px 10px; border-radius:20px; color:var(--teal); font-weight:600;
-  }
-  .card p{font-size:14px; color:var(--ink-soft);}
-  .card-cert-btn{
-    display:inline-flex; align-items:center; gap:6px;
-    background:transparent; border:1px solid var(--line); color:var(--teal);
-    font-family:'JetBrains Mono', monospace; font-size:11.5px; font-weight:600;
-    padding:5px 12px; border-radius:20px; cursor:pointer; transition:all 0.2s ease;
-  }
-  .card-cert-btn:hover{background:var(--paper); border-color:var(--gold); color:var(--ink);}
-  .card-cert-btn svg{width:12px; height:12px; flex-shrink:0;}
+/* ---------- kerja / work items ---------- */
+.work-list{display:flex;flex-direction:column;}
+.work-item{position:relative;display:grid;grid-template-columns:110px 1fr auto;gap:26px;align-items:start;padding:26px 22px;border:1px solid transparent;border-top:1px solid var(--stroke);cursor:pointer;transition:border-color .18s ease, background .18s ease;}
+.work-item:last-child{border-bottom:1px solid var(--stroke);}
+.work-item:hover{border-color:var(--stroke-strong);background:var(--panel);}
+.work-item .role{font-family:var(--mono);font-size:11px;color:var(--amber);letter-spacing:0.02em;padding-top:4px;}
+.work-item h3{font-size:20px;margin-bottom:8px;text-transform:uppercase;}
+.work-item p{font-size:14px;color:var(--ink-dim);max-width:560px;margin-bottom:12px;font-family:var(--sans);}
+.chips{display:flex;flex-wrap:wrap;gap:8px;}
+.chip{font-family:var(--mono);font-size:11px;border:1px solid var(--stroke);border-radius:2px;padding:4px 9px;color:var(--ink-dim);}
+.work-item .go{font-family:var(--mono);font-size:11px;color:var(--ink-dim);border:1px solid var(--stroke);border-radius:2px;padding:8px 12px;flex:none;}
+.work-item:hover .go{color:var(--signal);border-color:var(--signal);}
+.work-note{margin-top:22px;font-size:13.5px;color:var(--ink-dim);font-family:var(--mono);}
+.work-note b{color:var(--ink);}
 
-  .cert-list{margin-top:20px; display:grid; grid-template-columns:repeat(2, 1fr); gap:10px 24px;}
-  .cert-row{display:flex; justify-content:space-between; gap:12px; padding:10px 0; border-bottom:1px dashed var(--line); font-size:14px;}
-  .cert-row .cname{color:var(--ink);}
-  .cert-row .cissuer{color:var(--ink-soft); font-family:'JetBrains Mono', monospace; font-size:12px; text-align:right; white-space:nowrap;}
+/* ---------- organisasi timeline ---------- */
+.timeline{position:relative;padding-left:32px;}
+.timeline::before{content:'';position:absolute;left:5px;top:6px;bottom:6px;width:1px;background:var(--stroke-strong);}
+.t-item{position:relative;padding-bottom:40px;}
+.t-item:last-child{padding-bottom:0;}
+.t-item::before{content:'';position:absolute;left:-32px;top:5px;width:11px;height:11px;background:var(--void);border:2px solid var(--signal);}
+.t-item h3{font-size:18px;margin-bottom:6px;text-transform:uppercase;}
+.t-item .org{font-family:var(--mono);font-size:12.5px;color:var(--signal);margin-bottom:8px;}
+.t-item p{font-size:14px;color:var(--ink-dim);max-width:600px;font-family:var(--sans);}
 
-  /* ---------- SKILLS ---------- */
-  .skills-grid{display:grid; grid-template-columns:repeat(3, 1fr); gap:22px;}
-  .skill-cat h3{font-size:15px; font-family:'JetBrains Mono', monospace; text-transform:uppercase; letter-spacing:0.06em; color:var(--teal); margin-bottom:16px; font-weight:600;}
-  .skill-cat ul{list-style:none;}
-  .skill-cat li{
-    font-size:15px; padding:10px 0; border-bottom:1px solid var(--line); color:var(--ink-soft);
-  }
-  .skill-cat li:first-child{padding-top:0;}
+/* ---------- pendidikan ---------- */
+.edu-grid{display:grid;grid-template-columns:1fr 1fr;gap:20px;}
+.edu-card{background:var(--card);border:1px solid var(--stroke);border-radius:2px;padding:28px;position:relative;}
+.edu-card .gpa{position:absolute;top:26px;right:26px;text-align:right;}
+.edu-card .gpa .v{font-family:var(--mono);font-size:24px;color:var(--signal);}
+.edu-card .gpa .l{font-family:var(--mono);font-size:10px;color:var(--ink-faint);}
+.edu-card h3{font-size:20px;max-width:75%;margin-bottom:6px;text-transform:uppercase;}
+.edu-card .place{font-family:var(--mono);font-size:12.5px;color:var(--ink-dim);margin-bottom:14px;}
+.edu-card .status{display:inline-block;font-family:var(--mono);font-size:10.5px;color:var(--signal);border:1px solid rgba(141,255,106,0.3);border-radius:2px;padding:5px 10px;margin-bottom:14px;}
 
-  /* ---------- CONTACT / FOOTER ---------- */
-  footer{
-    background:var(--ink); color:var(--paper-soft); padding:70px 0 34px;
-  }
-  .footer-grid{display:grid; grid-template-columns:1.2fr 0.8fr; gap:40px; margin-bottom:50px;}
-  footer h2{color:var(--paper-soft); font-size:clamp(30px,4vw,46px); margin-bottom:16px;}
-  footer p{color:#b7c1af; max-width:42ch; font-size:15.5px;}
-  .contact-list{display:flex; flex-direction:column; gap:16px; justify-content:center;}
-  .contact-list a{
-    font-family:'JetBrains Mono', monospace; font-size:14.5px; color:#dfe6d8;
-    border-bottom:1px solid rgba(255,255,255,0.18); padding-bottom:10px; transition:color 0.2s;
-    word-break:break-word;
-  }
-  .contact-list a:hover{color:var(--gold-soft);}
-  .foot-bottom{
-    display:flex; justify-content:space-between; padding-top:24px; border-top:1px solid rgba(255,255,255,0.12);
-    font-size:12.5px; color:#8b9683; font-family:'JetBrains Mono', monospace; flex-wrap:wrap; gap:10px;
-  }
+/* ---------- sertifikasi ---------- */
+.cert-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-bottom:16px;}
+.cert-card{background:var(--card);border:1px solid var(--stroke);border-radius:2px;padding:20px;}
+.cert-card h4{font-family:var(--sans);font-weight:600;font-size:14px;margin-bottom:6px;}
+.cert-card p{font-family:var(--mono);font-size:11.5px;color:var(--ink-dim);margin-bottom:12px;}
+.cert-card.ghost{border-style:dashed;border-color:var(--stroke);color:var(--ink-faint);display:flex;flex-direction:column;justify-content:center;align-items:flex-start;gap:8px;min-height:100px;}
+.cert-card.ghost .plus{font-family:var(--mono);width:24px;height:24px;border:1px dashed var(--stroke-strong);display:flex;align-items:center;justify-content:center;color:var(--signal);}
+.sub-h{font-family:var(--mono);font-size:12px;color:var(--amber);margin:34px 0 14px;letter-spacing:0.02em;}
+.sub-h:first-of-type{margin-top:0;}
 
-  /* ---------- CLICKABLE CERT CARDS ---------- */
-  .cert-clickable{
-    cursor:pointer; transition:box-shadow 0.2s ease, transform 0.2s ease, border-color 0.2s ease;
-  }
-  .sub-block.cert-clickable:hover, .tl-item .research-clickable:hover{
-    box-shadow:0 6px 18px rgba(27,43,30,0.1); transform:translateY(-2px); border-color:var(--gold);
-  }
-  .tl-item.cert-clickable:hover{transform:translateY(-2px);}
-  .cert-hint{
-    display:inline-flex; align-items:center; gap:6px; margin-top:12px;
-    font-family:'JetBrains Mono', monospace; font-size:11.5px; color:var(--teal);
-    letter-spacing:0.03em; text-transform:uppercase; font-weight:600;
-  }
-  .cert-hint svg{width:13px; height:13px; flex-shrink:0;}
-  .cert-row.cert-clickable{cursor:pointer;}
-  .cert-row.cert-clickable:hover .cname{color:var(--teal);}
-  .cert-row.cert-clickable .cname{transition:color 0.2s ease;}
-  .research-cert-btn{
-    margin-top:20px; display:inline-flex; align-items:center; gap:8px;
-    background:transparent; border:1px solid rgba(255,255,255,0.3); color:var(--paper-soft);
-    font-family:'JetBrains Mono', monospace; font-size:12.5px; padding:10px 18px;
-    border-radius:20px; cursor:pointer; transition:all 0.2s ease;
-  }
-  .research-cert-btn:hover{background:rgba(255,255,255,0.1); border-color:var(--gold-soft);}
-  .research-cert-btn svg{width:14px; height:14px;}
+/* ---------- footer ---------- */
+footer{background:var(--panel);padding:70px 0 30px;}
+.foot-grid{display:grid;grid-template-columns:1.3fr 1fr;gap:40px;padding-bottom:40px;border-bottom:1px solid var(--stroke);}
+footer h2{color:var(--ink);font-size:var(--h2);max-width:460px;margin-bottom:22px;text-transform:uppercase;}
+footer .prompt{font-family:var(--mono);color:var(--signal);font-size:13px;margin-bottom:14px;}
+.foot-links{display:flex;flex-direction:column;gap:12px;align-items:flex-start;font-family:var(--mono);}
+.foot-links a{font-size:14.5px;color:var(--ink-dim);border-bottom:1px solid transparent;}
+.foot-links a:hover{color:var(--signal);border-color:var(--signal);}
+.foot-col h4{font-family:var(--mono);font-size:11px;color:var(--ink-faint);margin-bottom:14px;letter-spacing:0.03em;}
+.foot-col a{display:block;font-family:var(--mono);font-size:13px;color:var(--ink-dim);margin-bottom:10px;}
+.foot-col a:hover{color:var(--signal);}
+.copy{padding-top:24px;font-family:var(--mono);font-size:11px;color:var(--ink-faint);display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px;}
 
-  /* ---------- MODAL ---------- */
-  .modal-overlay{
-    display:none; position:fixed; inset:0; background:rgba(20,28,17,0.78);
-    z-index:200; align-items:center; justify-content:center; padding:24px;
-    backdrop-filter:blur(3px);
-  }
-  .modal-overlay.open{display:flex;}
-  .modal-box{
-    background:var(--paper-soft); border-radius:10px; padding:30px;
-    max-width:760px; width:100%; max-height:88vh; overflow-y:auto; position:relative;
-    box-shadow:0 30px 60px rgba(0,0,0,0.35);
-    -webkit-overflow-scrolling:touch;
-  }
-  .modal-close{
-    position:absolute; top:16px; right:16px; width:34px; height:34px; border-radius:50%;
-    border:1px solid var(--line); background:var(--white); cursor:pointer;
-    font-size:16px; color:var(--ink); display:flex; align-items:center; justify-content:center;
-    transition:all 0.2s ease;
-  }
-  .modal-close:hover{background:var(--ink); color:var(--paper-soft); border-color:var(--ink);}
-  .modal-title{font-family:'Fraunces', serif; font-size:20px; margin-bottom:18px; padding-right:40px;}
-  .modal-note{font-family:'JetBrains Mono', monospace; font-size:11.5px; color:var(--ink-soft); margin-top:14px;}
-  .modal-images{display:flex; gap:16px; flex-wrap:wrap; justify-content:center;}
-  .modal-images img{
-    border-radius:6px; border:1px solid var(--line); max-width:100%; height:auto; flex:1 1 280px;
-  }
+/* ---------- modal ---------- */
+.mo{display:none;position:fixed;inset:0;background:rgba(6,9,10,0.92);z-index:1000;align-items:center;justify-content:center;padding:32px;}
+.mo.open{display:flex;}
+.mx{background:var(--panel-2);border:1px solid var(--stroke-strong);border-radius:2px;padding:38px;max-width:820px;width:100%;max-height:88vh;overflow-y:auto;position:relative;}
+.mx .close{position:absolute;top:18px;right:18px;font-family:var(--mono);font-size:22px;border:none;background:none;cursor:pointer;color:var(--ink-dim);}
+.mx .close:hover{color:var(--signal);}
+.mx .title{font-family:var(--disp);font-size:26px;margin-bottom:22px;text-transform:uppercase;}
+.mx img{border-radius:2px;width:100%;margin-bottom:14px;border:1px solid var(--stroke);}
+.mx .note{font-family:var(--mono);font-size:12.5px;color:var(--ink-dim);}
 
-  /* ================= RESPONSIVE ================= */
-  @media (max-width: 860px){
-    .navlinks{display:none;}
-    .navtoggle{display:flex;}
-    .mobile-menu{display:flex;}
-    .hero-grid, .about-grid, .research, .footer-grid{grid-template-columns:1fr;}
-    .about-stats{grid-template-columns:repeat(2,1fr);}
-    .edu-grid{grid-template-columns:1fr;}
-    .skills-grid{grid-template-columns:1fr 1fr;}
-    .cert-list{grid-template-columns:1fr;}
-    .research{padding:36px 24px;}
-    .furrows{height:220px; margin-top:20px;}
-    section{padding:64px 0;}
-    .hero{padding:48px 0 56px;}
-  }
-  @media (max-width: 520px){
-    .wrap{padding:0 20px;}
-    nav{padding:14px 20px;}
-    .brand{font-size:16px;}
-    .skills-grid{grid-template-columns:1fr;}
-    .about-stats{grid-template-columns:1fr 1fr; gap:16px;}
-    .hero{padding:40px 0 44px;}
-    .hero p.lede{font-size:16px;}
-    .hero-cta{flex-direction:column; align-items:stretch;}
-    .hero-cta .btn{justify-content:center;}
-    .furrows{height:150px;}
-    section{padding:52px 0;}
-    .timeline{padding-left:20px;}
-    .tl-item::before{left:-24px;}
-    .sub-block{padding:16px;}
-    .research{padding:28px 18px;}
-    .research .algo-tags span{font-size:11px; padding:5px 10px;}
-    .card{padding:22px 20px;}
-    .gpa-row{gap:8px;}
-    .cert-row{flex-direction:column; gap:2px;}
-    .cert-row .cissuer{text-align:left;}
-    footer{padding:52px 0 26px;}
-    .foot-bottom{flex-direction:column; align-items:flex-start; gap:6px;}
-    .modal-box{padding:20px; max-height:92vh;}
-    .modal-images img{flex:1 1 100%;}
-  }
+@media(max-width:860px){
+  .hero .w{grid-template-columns:1fr;}
+  .about-grid{grid-template-columns:1fr;}
+  .work-item{grid-template-columns:1fr;gap:10px;}
+  .work-item .go{display:none;}
+  .edu-grid{grid-template-columns:1fr;}
+  .cert-grid{grid-template-columns:1fr 1fr;}
+  .foot-grid{grid-template-columns:1fr;}
+  .nav-links{display:none;}
+  .sec-head{flex-direction:column;align-items:flex-start;}
+  .sec-head p{text-align:left;}
+}
+@media(max-width:520px){
+  .cert-grid{grid-template-columns:1fr;}
+}
 </style>
 </head>
 <body>
 
-<header>
-  <nav class="wrap">
-    <div class="brand">Hamizan Afza <span>·</span> Al Isyraqi</div>
-    <div class="navlinks">
-      <a href="#tentang">Tentang</a>
-      <a href="#pengalaman">Pengalaman</a>
-      <a href="#riset">Riset</a>
-      <a href="#keahlian">Keahlian</a>
-      <a href="#kontak">Kontak</a>
+<div class="strip">
+  <div class="w">
+    <span><span class="dot"></span>STATUS: YUDISIUM_SELESAI // MENUNGGU_WISUDA</span>
+    <span>TERBUKA_UNTUK_KOLABORASI</span>
+  </div>
+</div>
+
+<nav>
+  <div class="w">
+    <div class="brand"><span class="id"></span> H.AFZA_AL_ISYRAQI</div>
+    <div class="nav-links">
+      <a href="#kerja">KERJA</a>
+      <a href="#organisasi">ORGANISASI</a>
+      <a href="#pendidikan">PENDIDIKAN</a>
+      <a href="#sertifikasi">SERTIFIKASI</a>
+      <a href="#kontak">KONTAK</a>
     </div>
-    <button class="navtoggle" id="navToggle" aria-label="Buka menu" aria-expanded="false" onclick="toggleMobileMenu()">
-      <svg class="icon-menu" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
-      <svg class="icon-close" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="6" y1="6" x2="18" y2="18"/><line x1="6" y1="18" x2="18" y2="6"/></svg>
-    </button>
-  </nav>
-  <div class="mobile-menu" id="mobileMenu">
-    <a href="#tentang" onclick="closeMobileMenu()">Tentang</a>
-    <a href="#pengalaman" onclick="closeMobileMenu()">Pengalaman</a>
-    <a href="#riset" onclick="closeMobileMenu()">Riset</a>
-    <a href="#keahlian" onclick="closeMobileMenu()">Keahlian</a>
-    <a href="#kontak" onclick="closeMobileMenu()">Kontak</a>
+    <a class="btn btn-solid nav-cta" href="#kontak">HUBUNGI_SAYA</a>
+  </div>
+</nav>
+
+<header class="hero">
+  <div class="frame"></div>
+  <div class="w">
+    <div>
+      <div class="tag-line">// PROFIL_SISTEM <span class="cursor"></span></div>
+      <h1>Hamizan Afza<br>Al Isyraqi</h1>
+      <p class="role">Sarjana Teknik Informatika Universitas Trunojoyo Madura. Membangun model machine learning untuk riset lahan pertanian, sekaligus mengelola jadwal dan komunikasi di balik layar acara-acara kampus.</p>
+      <div class="actions">
+        <a class="btn btn-solid" href="#kerja">LIHAT_PEKERJAAN</a>
+        <a class="btn" href="#kontak">UNDUH_CV</a>
+      </div>
+      <div class="hero-meta">
+        <span>IPK <b>3.69</b> // S1_INFORMATIKA</span>
+        <span><b>~1_TAHUN</b> MANAJEMEN_ACARA</span>
+        <span>LOKASI: <b>BANGKALAN,_ID</b></span>
+      </div>
+    </div>
+    <div class="hero-card">
+      <span class="corner tl"></span><span class="corner br"></span>
+      <span class="tag">● SOILML — RISET_SKRIPSI</span>
+      <div class="console">
+        <span class="k">&gt;</span> melatih_model_ensemble()<br>
+        <span class="k">&gt;</span> stack: xgboost + random_forest + decision_tree<br>
+        <span class="k">&gt;</span> akurasi_terbaik: <span class="ok">98.82%</span><br>
+        <span class="k">&gt;</span> status: <span class="ok">READY</span>
+      </div>
+      <p class="note">Klasifikasi kesesuaian lahan padi sawah di Bangkalan, memadukan data sensor IoT dan pelabelan fuzzy Mamdani.</p>
+    </div>
   </div>
 </header>
 
-<section class="hero">
-  <div class="wrap hero-grid">
-    <div>
-      <span class="eyebrow">Informatika · Manajemen Acara</span>
-      <h1>Merapikan alur: <em>baik acara, maupun data.</em></h1>
-      <p class="lede">Mahasiswa Teknik Informatika di Universitas Trunojoyo Madura dengan pengalaman sebagai Liaison Officer dan Event Division. Terbiasa merancang rundown, memfasilitasi komunikasi tim, sekaligus membangun model machine learning untuk riset klasifikasi lahan pertanian.</p>
-      <div class="hero-cta">
-        <a class="btn btn-primary" href="#pengalaman">Lihat Pengalaman</a>
-        <a class="btn btn-ghost" href="#kontak">Hubungi Saya</a>
+<section id="tentang">
+  <div class="w about-grid">
+    <p class="about-lead">Ketelitian menyusun anggaran acara ternyata tidak jauh berbeda dengan ketelitian men-tuning parameter model — <span class="hl">keduanya gagal kalau satu detail terlewat.</span></p>
+    <div class="about-side">
+      <div class="about-stat"><div class="v">04</div><div class="l">proyek &amp; pekerjaan lepas yang sedang berjalan atau selesai</div></div>
+      <div class="about-stat"><div class="v">02</div><div class="l">institusi pendidikan — UTM Madura &amp; INTI University Malaysia</div></div>
+      <div class="about-stat"><div class="v">03</div><div class="l">peran di organisasi kampus, dari sie acara hingga MC</div></div>
+    </div>
+  </div>
+</section>
+
+<section id="kerja">
+  <div class="w">
+    <div class="sec-head">
+      <div>
+        <span class="num">SEC.01 :: KERJA_&amp;_PROYEK</span>
+        <h2>Pekerjaan lepas dan riset</h2>
+      </div>
+      <p>KLIK_ITEM<br>UNTUK_DETAIL</p>
+    </div>
+
+    <div class="work-list">
+      <div class="work-item" onclick="om('SoilML — Klasifikasi Lahan Padi',['riset-1','riset-2'])">
+        <div class="role">RISET / SKRIPSI</div>
+        <div>
+          <h3>SoilML</h3>
+          <p>Klasifikasi kesesuaian lahan untuk budidaya padi di Bangkalan memakai ensemble machine learning (XGBoost, Random Forest, Decision Tree) dengan pelabelan otomatis Fuzzy Mamdani dari data sensor IoT. Dibangun sebagai aplikasi Streamlit dan Flask + React.</p>
+          <div class="chips"><span class="chip">PYTHON</span><span class="chip">XGBOOST</span><span class="chip">FLASK+REACT</span><span class="chip">IOT</span></div>
+        </div>
+        <div class="go">[ OPEN ]</div>
+      </div>
+
+      <div class="work-item" onclick="om('Orion Private Class — Landing Page',['orion'])">
+        <div class="role">FREELANCE_WEB</div>
+        <div>
+          <h3>Orion Private Class</h3>
+          <p>Merancang dan membangun landing page untuk bimbingan belajar privat di Pamekasan Kota, termasuk kartu testimoni dengan hover popup tangkapan layar WhatsApp, serta menyiapkan database murid berbasis Excel.</p>
+          <div class="chips"><span class="chip">HTML/CSS</span><span class="chip">UI_DESIGN</span><span class="chip">EXCEL</span></div>
+        </div>
+        <div class="go">[ OPEN ]</div>
+      </div>
+
+      <div class="work-item" onclick="om('GeoZonasi',['geozonasi'])">
+        <div class="role">TOOLS / PYTHON</div>
+        <div>
+          <h3>GeoZonasi</h3>
+          <p>Alat zonasi sekolah berbasis Python yang melakukan geocoding alamat siswa dan menyaring berdasarkan jarak memakai formula Haversine. Awalnya dibuat untuk Bangkalan, kemudian disesuaikan untuk wilayah Surabaya.</p>
+          <div class="chips"><span class="chip">PYTHON</span><span class="chip">GEOCODING</span><span class="chip">DATA_PROCESSING</span></div>
+        </div>
+        <div class="go">[ OPEN ]</div>
+      </div>
+
+      <div class="work-item" onclick="om('Sistem POS &amp; Inventori',['pos'])">
+        <div class="role">WEB_APP</div>
+        <div>
+          <h3>Sistem POS &amp; Inventori</h3>
+          <p>Aplikasi web point-of-sale dan manajemen inventori memakai Flask dan SQLite, di-hosting di PythonAnywhere untuk kebutuhan pencatatan transaksi harian.</p>
+          <div class="chips"><span class="chip">FLASK</span><span class="chip">SQLITE</span><span class="chip">PYTHONANYWHERE</span></div>
+        </div>
+        <div class="go">[ OPEN ]</div>
       </div>
     </div>
-    <div>
-      <div class="furrows" id="furrows" aria-hidden="true"></div>
-    </div>
+
+    <p class="work-note">&gt; SELAIN_ITU: pernah membantu men-debug macro VBA Excel untuk pelacakan data penjualan.</p>
   </div>
 </section>
 
-<hr class="divider">
-
-<section id="tentang">
-  <div class="wrap about-grid">
-    <div>
-      <span class="eyebrow">Tentang</span>
-      <h2>Dua peran, satu kebiasaan: menjaga sesuatu tetap teratur.</h2>
-    </div>
-    <div>
-      <p>Dengan satu tahun pengalaman di manajemen acara dan komunikasi, saya pernah berperan sebagai Liaison Officer dan anggota Event Division, menangani koordinasi acara, komunikasi antar pihak, hingga pencatatan data peserta menggunakan Google Docs dan Google Sheets.</p>
-      <p>Di sisi akademik, saya menekuni Teknik Informatika dengan fokus riset pada penerapan machine learning untuk klasifikasi kesesuaian lahan pertanian, memadukan ketelitian data dengan kebiasaan menjaga alur kerja tetap rapi, kebiasaan yang saya bawa dari pengalaman mengelola acara.</p>
-    </div>
-  </div>
-  <div class="wrap" style="margin-top:48px;">
-    <div class="about-stats">
-      <div class="stat"><div class="num">1 Thn</div><div class="lab">Event & Komunikasi</div></div>
-      <div class="stat"><div class="num">3</div><div class="lab">Program UKMFT ITC</div></div>
-      <div class="stat"><div class="num">3.69</div><div class="lab">IPK Informatika</div></div>
-      <div class="stat"><div class="num">98.82%</div><div class="lab">Akurasi Model Riset</div></div>
-    </div>
-  </div>
-</section>
-
-<hr class="divider">
-
-<section id="pengalaman">
-  <div class="wrap">
-    <div class="section-head">
-      <span class="eyebrow">Pengalaman</span>
-      <h2>Organisasi & Kerja</h2>
+<section id="organisasi">
+  <div class="w">
+    <div class="sec-head">
+      <div>
+        <span class="num">SEC.02 :: PENGALAMAN_ORGANISASI</span>
+        <h2>Mengelola orang &amp; waktu di luar kelas</h2>
+      </div>
+      <p>~1_TAHUN AKTIF<br>MANAJEMEN_ACARA</p>
     </div>
 
     <div class="timeline">
-      <div class="tl-item">
-        <div class="tl-role">Event Division</div>
-        <h3>UKMFT ITC · Universitas Trunojoyo Madura</h3>
-        <div class="tl-meta">Jawa Timur, Indonesia · Jan – Des 2024</div>
-
-        <div class="sub-block cert-clickable" onclick="openCertModal('ITC Charity', ['itc-charity'])">
-          <h4>ITC Charity <span>Bancaran, Bangkalan · 30 Maret 2024</span></h4>
-          <ul>
-            <li>Merancang rundown acara dan menyusun perencanaan anggaran sebagai anggota Event Planning Committee.</li>
-            <li>Menjadi Master of Ceremony, menjaga kelancaran acara dan keterlibatan audiens.</li>
-            <li>Mengelola dokumentasi dan perencanaan tim melalui Google Docs.</li>
-          </ul>
-          <div class="cert-hint"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg>Lihat sertifikat</div>
-        </div>
-        <div class="sub-block cert-clickable" onclick="openCertModal('Study Club ITC', ['study-club-itc'])">
-          <h4>Study Club ITC <span>Mei – Juli 2024</span></h4>
-          <ul>
-            <li>Menyusun rundown dan jadwal untuk tiap bidang studi dan sesi tutor.</li>
-            <li>Menjadi Master of Ceremony pada setiap sesi Study Club.</li>
-            <li>Mencatat dan merekap nilai evaluasi peserta.</li>
-            <li>Mendokumentasikan progres kegiatan melalui Google Docs dan Google Sheets untuk transparansi tim.</li>
-          </ul>
-          <div class="cert-hint"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg>Lihat sertifikat</div>
-        </div>
-        <div class="sub-block cert-clickable" onclick="openCertModal('Infinite - Program Pelatihan ITC', ['infinite-itc'])">
-          <h4>Infinite · Program Pelatihan ITC <span>29 Agu – 9 Okt 2024</span></h4>
-          <ul>
-            <li>Mengelola sistem penilaian Mini Study Club dan kegiatan pelatihan secara keseluruhan.</li>
-            <li>Menyiapkan rundown acara dan perencanaan anggaran.</li>
-            <li>Membuat dan mendistribusikan template penilaian, rundown, serta laporan kegiatan via Google Docs.</li>
-          </ul>
-          <div class="cert-hint"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg>Lihat sertifikat</div>
-        </div>
+      <div class="t-item">
+        <h3>Sie / Divisi Acara</h3>
+        <div class="org">UKMFT ITC</div>
+        <p>Menyusun jadwal dan anggaran acara internal unit kegiatan mahasiswa, mulai dari perencanaan hingga hari pelaksanaan.</p>
       </div>
-
-      <div class="tl-item cert-clickable" onclick="openCertModal('Booting &amp; Memory - Liaison Officer', ['booting-memory'])">
-        <div class="tl-role">Liaison Officer</div>
-        <h3>Booting & Memory · Universitas Trunojoyo Madura</h3>
-        <div class="tl-meta">Jawa Timur, Indonesia · Agu – Sep 2024</div>
-        <ul>
-          <li>Memfasilitasi komunikasi antara peserta dan penyelenggara melalui alur informasi yang terstruktur.</li>
-          <li>Menerapkan sistem pencatatan kehadiran untuk memperlancar komunikasi antara panitia dan peserta.</li>
-          <li>Mengelola data peserta, termasuk laporan nilai dan data pribadi, untuk dokumentasi administratif yang akurat.</li>
-          <li>Menyusun laporan acara dan dokumentasi kegiatan untuk arsip panitia internal.</li>
-        </ul>
-        <div class="cert-hint"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg>Lihat sertifikat</div>
+      <div class="t-item">
+        <h3>Liaison Officer</h3>
+        <div class="org">Event Booting &amp; Memory — diselenggarakan Himatif</div>
+        <p>Menjadi penghubung komunikasi antara panitia dan peserta/pengisi acara selama acara berlangsung, memastikan kebutuhan teknis dan non-teknis terpenuhi.</p>
+      </div>
+      <div class="t-item">
+        <h3>Pembawa Acara (MC)</h3>
+        <div class="org">Beberapa acara internal kampus</div>
+        <p>Memandu jalannya acara di depan peserta, sekaligus menjaga acara tetap sesuai rundown dan waktu yang direncanakan.</p>
       </div>
     </div>
   </div>
 </section>
 
-<hr class="divider">
-
-<section id="riset">
-  <div class="wrap">
-    <div class="research">
+<section id="pendidikan">
+  <div class="w">
+    <div class="sec-head">
       <div>
-        <span class="eyebrow">Riset Skripsi</span>
-        <h2>Klasifikasi Kesesuaian Lahan untuk Budidaya Padi Menggunakan Ensemble Machine Learning</h2>
-        <p>Membangun model klasifikasi kesesuaian lahan padi berbasis ensemble machine learning (Decision Tree, Random Forest, dan XGBoost dengan Hard & Soft Voting), menggunakan data lapangan dari Kecamatan Kamal, Bangkalan.</p>
-        <p>Data diproses dari lima parameter (pH tanah, suhu tanah, suhu udara, kelembapan tanah dan udara), melalui tahap preprocessing dan pelabelan kelas menggunakan fuzzy logic, lalu diuji pada berbagai skenario pembagian data dari 90:10 hingga 60:40 untuk menemukan konfigurasi paling optimal.</p>
-        <p>Model terbaik diimplementasikan ke dalam sistem berbasis web bernama <strong>SoilML</strong>.</p>
-        <div class="algo-tags">
-          <span>Decision Tree</span><span>Random Forest</span><span>XGBoost</span><span>Fuzzy Logic</span><span>Soft & Hard Voting</span>
-        </div>
-        <button class="research-cert-btn" onclick="openCertModal('Dokumentasi Riset Skripsi', ['riset-1', 'riset-2'])">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg>
-          Lihat dokumentasi riset
-        </button>
+        <span class="num">SEC.03 :: PENDIDIKAN</span>
+        <h2>Latar belakang akademik</h2>
       </div>
-      <div class="research-stats">
-        <div class="rstat"><div class="num">98.82%</div><div class="lab">Akurasi terbaik (Soft Voting, split 80:20)</div></div>
-        <div class="rstat"><div class="num">5</div><div class="lab">Parameter data lapangan</div></div>
-        <div class="rstat"><div class="num">90:10 → 60:40</div><div class="lab">Skenario pembagian data yang diuji</div></div>
-        <div class="rstat"><div class="num">SoilML</div><div class="lab">Sistem web hasil implementasi</div></div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<hr class="divider">
-
-<section id="edukasi">
-  <div class="wrap">
-    <div class="section-head">
-      <span class="eyebrow">Pendidikan</span>
-      <h2>Latar Belakang Akademik</h2>
     </div>
     <div class="edu-grid">
-      <div class="card">
+      <div class="edu-card">
+        <div class="gpa"><div class="v">3.69</div><div class="l">IPK</div></div>
+        <span class="status">YUDISIUM_SELESAI // SKL_TERBIT</span>
         <h3>S1 Teknik Informatika</h3>
-        <div class="meta">Universitas Trunojoyo Madura · Indonesia · Agu 2022 – Agu 2026</div>
-        <div class="gpa-row">
-          <span class="gpa">IPK 3.69</span>
-        </div>
-        <p>Mata kuliah relevan: Sistem Informasi, Etika Profesi, Sistem Basis Data, Pemrograman Web.</p>
+        <div class="place">Universitas Trunojoyo Madura // 2022 — 2026</div>
       </div>
-      <div class="card">
-        <h3>Student Mobility in Computer Science</h3>
-        <div class="meta">INTI International University · Malaysia · Jan – Mei 2025</div>
-        <div class="gpa-row">
-          <span class="gpa">IPK 3.07</span>
-          <button class="card-cert-btn" onclick="openCertModal('Student Mobility Certificate', ['student-mobility'])">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg>
-            Lihat sertifikat
-          </button>
-        </div>
-        <p>Mata kuliah relevan: Big Data Analytics, Social/Web/Mobile Analytics, Cybersecurity, Business Intelligence, Agile Development.</p>
+      <div class="edu-card">
+        <div class="gpa"><div class="v">3.07</div><div class="l">IPK</div></div>
+        <h3>Program Student Mobility</h3>
+        <div class="place">INTI University, Malaysia // 2025</div>
+        <button class="btn" onclick="om('Sertifikat Student Mobility',['student-mobility'])">LIHAT_SERTIFIKAT</button>
       </div>
-    </div>
-
-    <div class="cert-list">
-      <div class="cert-row"><span class="cname">Student Mobility Certificate</span><span class="cissuer">INTI Int'l University · 2025</span></div>
-      <div class="cert-row"><span class="cname">Networking Essentials</span><span class="cissuer">Cisco · 2024</span></div>
-      <div class="cert-row"><span class="cname">Data Science Fundamentals</span><span class="cissuer">DQLab · 2024</span></div>
-      <div class="cert-row"><span class="cname">Fundamental SQL Using SELECT Statement</span><span class="cissuer">DQLab · 2024</span></div>
-      <div class="cert-row"><span class="cname">Python Fundamental for Data Science</span><span class="cissuer">DQLab · 2024</span></div>
-      <div class="cert-row"><span class="cname">R Fundamental for Data Science</span><span class="cissuer">DQLab · 2024</span></div>
-      <div class="cert-row"><span class="cname">Introduction to Data Science with Python</span><span class="cissuer">DQLab · 2024</span></div>
-      <div class="cert-row"><span class="cname">Introduction to Data Science with R</span><span class="cissuer">DQLab · 2024</span></div>
-      <div class="cert-row"><span class="cname">Guide to Learn Python with AI</span><span class="cissuer">DQLab · 2024</span></div>
-      <div class="cert-row"><span class="cname">Guide to Learn R with AI</span><span class="cissuer">DQLab · 2024</span></div>
-      <div class="cert-row"><span class="cname">Guide to Learn SQL with AI</span><span class="cissuer">DQLab · 2024</span></div>
     </div>
   </div>
 </section>
 
-<hr class="divider">
-
-<section id="keahlian">
-  <div class="wrap">
-    <div class="section-head">
-      <span class="eyebrow">Keahlian</span>
-      <h2>Alat & Kemampuan</h2>
+<section id="sertifikasi">
+  <div class="w">
+    <div class="sec-head">
+      <div>
+        <span class="num">SEC.04 :: SERTIFIKASI_&amp;_PELATIHAN</span>
+        <h2>Penunjang di luar perkuliahan</h2>
+      </div>
+      <p>MUDAH_DITAMBAH<br>SALIN_KARTU_+ISI</p>
     </div>
-    <div class="skills-grid">
-      <div class="skill-cat">
-        <h3>Perangkat</h3>
-        <ul>
-          <li>Google Workspace (Docs, Sheets, Drive, Forms)</li>
-          <li>Microsoft Office (Word, Excel, PowerPoint)</li>
-          <li>Canva</li>
-        </ul>
+
+    <div class="sub-h">// SERTIFIKASI</div>
+    <div class="cert-grid">
+      <div class="cert-card">
+        <h4>Sertifikat Student Mobility</h4>
+        <p>INTI UNIVERSITY, MALAYSIA // 2025</p>
+        <button class="btn" onclick="om('Sertifikat Student Mobility',['student-mobility'])">LIHAT</button>
       </div>
-      <div class="skill-cat">
-        <h3>Teknis</h3>
-        <ul>
-          <li>HTML & CSS</li>
-          <li>MySQL</li>
-          <li>Data entry</li>
-        </ul>
-      </div>
-      <div class="skill-cat">
-        <h3>Interpersonal</h3>
-        <ul>
-          <li>Event planning</li>
-          <li>Public speaking</li>
-          <li>Koordinasi tim</li>
-          <li>Problem-solving</li>
-        </ul>
-      </div>
+      <div class="cert-card ghost"><div class="plus">+</div>Tambahkan sertifikat lain di sini</div>
+      <div class="cert-card ghost"><div class="plus">+</div>Tambahkan sertifikat lain di sini</div>
+    </div>
+
+    <div class="sub-h">// PELATIHAN</div>
+    <div class="cert-grid">
+      <div class="cert-card ghost"><div class="plus">+</div>Tambahkan pelatihan / workshop di sini</div>
+      <div class="cert-card ghost"><div class="plus">+</div>Tambahkan pelatihan / workshop di sini</div>
+      <div class="cert-card ghost"><div class="plus">+</div>Tambahkan pelatihan / workshop di sini</div>
     </div>
   </div>
 </section>
 
 <footer id="kontak">
-  <div class="wrap">
-    <div class="footer-grid">
+  <div class="w">
+    <div class="foot-grid">
       <div>
-        <span class="eyebrow" style="color:var(--gold-soft);">Kontak</span>
-        <h2>Terbuka untuk peran di data, riset, maupun koordinasi acara.</h2>
-        <p>Berbasis di Pamekasan, Jawa Timur. Silakan hubungi lewat email atau LinkedIn untuk peluang kerja maupun kolaborasi.</p>
+        <div class="prompt">&gt; transmit_message()</div>
+        <h2>Ada proyek atau acara yang perlu ditangani dengan rapi?</h2>
+        <div class="foot-links">
+          <a href="mailto:hamizanafza13@gmail.com">hamizanafza13@gmail.com</a>
+          <a href="https://linkedin.com/in/izanafza" target="_blank" rel="noopener">linkedin.com/in/izanafza</a>
+          <a href="https://github.com/Izanafza13" target="_blank" rel="noopener">github.com/Izanafza13</a>
+        </div>
       </div>
-      <div class="contact-list">
-        <a href="mailto:hamizanafza13@gmail.com">hamizanafza13@gmail.com</a>
-        <a href="https://linkedin.com/in/izanafza" target="_blank" rel="noopener">linkedin.com/in/izanafza</a>
-        <a href="#" onclick="return false;" style="cursor:default; border-bottom:none;">Pamekasan, Jawa Timur, Indonesia</a>
+      <div class="foot-col">
+        <h4>PETA_HALAMAN</h4>
+        <a href="#kerja">KERJA</a>
+        <a href="#organisasi">ORGANISASI</a>
+        <a href="#pendidikan">PENDIDIKAN</a>
+        <a href="#sertifikasi">SERTIFIKASI</a>
       </div>
     </div>
-    <div class="wrap foot-bottom" style="padding:0;">
-      <span>© 2026 Hamizan Afza Al Isyraqi</span>
-      <span>Dibangun untuk portofolio developer</span>
+    <div class="w" style="padding:0;">
+      <div class="copy">
+        <span>© 2026 HAMIZAN_AFZA_AL_ISYRAQI</span>
+        <span>BANGKALAN, MADURA, ID</span>
+      </div>
     </div>
   </div>
 </footer>
 
-<div class="modal-overlay" id="certModal" onclick="if(event.target===this) closeCertModal()">
-  <div class="modal-box">
-    <button class="modal-close" onclick="closeCertModal()" aria-label="Tutup">✕</button>
-    <div class="modal-title" id="modalTitle"></div>
-    <div class="modal-images" id="modalImages"></div>
-    <div class="modal-note" id="modalNote"></div>
+<div class="mo" id="mod" onclick="if(event.target===this)cm()">
+  <div class="mx">
+    <button class="close" onclick="cm()">&times;</button>
+    <div class="title" id="mt"></div>
+    <div class="gallery" id="mi"></div>
+    <div class="note" id="mn"></div>
   </div>
 </div>
 
 <script>
-  // build signature furrow/data-row visual
-  (function(){
-    const el = document.getElementById('furrows');
-    const n = 24;
-    for(let i=0;i<n;i++){
-      const row = document.createElement('div');
-      row.className = 'row';
-      const h = 30 + Math.round(Math.abs(Math.sin(i*0.7))*70) + (i%7===0?20:0);
-      row.style.height = h + '%';
-      row.style.animationDelay = (i*0.025)+'s';
-      el.appendChild(row);
+var IM={
+  "riset-1":"prediksi.png",
+  "riset-2":"prediksi-2.png",
+  "orion":"orion.jpg",
+  "geozonasi":"geozonasi.jpg",
+  "pos":"pos.jpg",
+  "student-mobility":"SM.jpeg"
+};
+
+function om(t,keys){
+  document.getElementById("mt").textContent=t;
+  var c=document.getElementById("mi");
+  c.innerHTML="";
+  var missing=false;
+  keys.forEach(function(k){
+    var src=IM[k];
+    if(!src){
+      missing=true;
+      src="data:image/svg+xml;utf8,"+encodeURIComponent(
+        "<svg xmlns='http://www.w3.org/2000/svg' width='700' height='420'><rect width='700' height='420' fill='%230d1614'/><text x='350' y='215' font-family='monospace' font-size='16' fill='%238dff6a' text-anchor='middle'>"+t+"</text></svg>"
+      );
     }
-  })();
-
-  // ---------- Mobile nav ----------
-  function toggleMobileMenu(){
-    const btn = document.getElementById('navToggle');
-    const menu = document.getElementById('mobileMenu');
-    const isOpen = menu.classList.toggle('open');
-    btn.classList.toggle('open', isOpen);
-    btn.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
-  }
-  function closeMobileMenu(){
-    document.getElementById('mobileMenu').classList.remove('open');
-    const btn = document.getElementById('navToggle');
-    btn.classList.remove('open');
-    btn.setAttribute('aria-expanded', 'false');
-  }
-
-  // ---------- Certificate popup ----------
-  // Ganti nilai di CERT_IMAGES ini dengan path/URL gambar sertifikat asli, contoh:
-  // 'itc-charity': ['sertifikat/itc-charity.jpg']
-  const CERT_IMAGES = {
-    'itc-charity': ['CHARITY.jpg'],
-    'study-club-itc': ['SC.jpg'],
-    'infinite-itc': null,              // belum ada file sertifikatnya
-    'booting-memory': ['BNM.jpeg'],
-    'riset-1': ['prediksi.png'],
-    'riset-2': ['prediksi 2.png'],
-    'student-mobility': ['SM.jpeg'],
-  };
-
-  function placeholderSVG(label){
-    const svg = `<svg xmlns='http://www.w3.org/2000/svg' width='600' height='420' viewBox='0 0 600 420'>
-      <rect width='600' height='420' fill='#f7f8f0'/>
-      <rect x='16' y='16' width='568' height='388' fill='none' stroke='#c99a2e' stroke-width='3'/>
-      <rect x='30' y='30' width='540' height='360' fill='none' stroke='#1b2b1e' stroke-width='1'/>
-      <text x='300' y='150' font-family='Georgia, serif' font-size='24' fill='#1b2b1e' text-anchor='middle'>SERTIFIKAT</text>
-      <text x='300' y='195' font-family='Arial' font-size='15' fill='#40503f' text-anchor='middle'>${label}</text>
-      <text x='300' y='255' font-family='Arial' font-size='11' fill='#8b9683' text-anchor='middle'>Gambar sertifikat asli belum diunggah</text>
-      <text x='300' y='273' font-family='Arial' font-size='11' fill='#8b9683' text-anchor='middle'>Ganti path di objek CERT_IMAGES pada kode</text>
-    </svg>`;
-    return 'data:image/svg+xml;utf8,' + encodeURIComponent(svg);
-  }
-
-  function openCertModal(title, keys){
-    document.getElementById('modalTitle').textContent = title;
-    const container = document.getElementById('modalImages');
-    container.innerHTML = '';
-    let anyPlaceholder = false;
-    keys.forEach(key => {
-      const src = CERT_IMAGES[key] || (anyPlaceholder = true, placeholderSVG(title));
-      const img = document.createElement('img');
-      img.src = src;
-      img.alt = title + ' sertifikat';
-      container.appendChild(img);
-    });
-    document.getElementById('modalNote').textContent = anyPlaceholder
-      ? 'Placeholder ditampilkan karena gambar sertifikat asli belum ditambahkan ke kode.'
-      : '';
-    const modal = document.getElementById('certModal');
-    modal.classList.add('open');
-    document.body.style.overflow = 'hidden';
-    closeMobileMenu();
-  }
-
-  function closeCertModal(){
-    document.getElementById('certModal').classList.remove('open');
-    document.body.style.overflow = '';
-  }
-
-  document.addEventListener('keydown', function(e){
-    if(e.key === 'Escape'){ closeCertModal(); closeMobileMenu(); }
+    var img=document.createElement("img");
+    img.src=src;
+    img.alt=t;
+    c.appendChild(img);
   });
+  document.getElementById("mn").textContent = missing ? "// gambar belum ditambahkan — ganti file di objek IM pada script." : "";
+  document.getElementById("mod").classList.add("open");
+  document.body.style.overflow="hidden";
+}
+function cm(){
+  document.getElementById("mod").classList.remove("open");
+  document.body.style.overflow="";
+}
+document.addEventListener("keydown",function(e){ if(e.key==="Escape") cm(); });
 </script>
 
 </body>
