@@ -15,6 +15,7 @@
 *{box-sizing:border-box;margin:0}
 html{scroll-behavior:smooth;scroll-padding-top:5rem}
 body{background:var(--ink);color:var(--paper);font-family:var(--font);line-height:1.6;overflow-x:hidden}
+body:has(dialog[open]){overflow:hidden}
 a{color:inherit;text-decoration:none}
 :focus-visible{outline:3px solid var(--lime);outline-offset:3px;border-radius:8px}
 .wrap{width:min(1180px,100% - 3rem);margin-inline:auto}
@@ -52,44 +53,44 @@ section>.wrap::before{content:"";position:absolute;top:-2px;left:0;width:5rem;he
 .card{border-radius:22px;padding:1.8rem;background:radial-gradient(70% 80% at var(--g,100% 0%),rgba(215,27,6,.3),transparent 65%),var(--surf);box-shadow:var(--edge)}
 .card h3{font-size:1.7rem;margin-bottom:.6rem}
 .card p{font-size:.98rem;opacity:.9;line-height:1.55}
-.feat{display:grid;grid-template-columns:1.5fr 1fr;gap:2rem;padding:2.2rem;margin-bottom:1rem;
-  background:radial-gradient(65% 95% at 12% 0%,rgba(215,27,6,.8),rgba(215,27,6,.28) 48%,transparent 78%),radial-gradient(45% 70% at 100% 100%,rgba(215,27,6,.38),transparent 72%),var(--ink);box-shadow:inset 0 0 0 1px rgba(215,27,6,.5)}
-.feat h3{font-size:clamp(1.8rem,4vw,2.8rem)}
-.feat .src{color:var(--lime);font-weight:700;font-size:.9rem;margin-bottom:.6rem}
-.flow{list-style:none;padding:0;margin-top:1.4rem;display:grid;grid-template-columns:1fr 1fr;gap:.6rem 1.4rem;font-size:.92rem}
+.src{color:var(--lime);font-weight:700;font-size:.85rem;margin-bottom:.5rem}
+.card .tags{margin-top:1rem}
+
+/* Proyek: 3 kolom */
+.two{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem;align-items:stretch}
+.two .card{display:flex;flex-direction:column}
+.two .card h3{font-size:clamp(1.4rem,2.2vw,1.75rem)}
+.two .card .tags{margin-bottom:1.2rem}
+.links{display:flex;flex-wrap:wrap;gap:.6rem;margin-top:auto;padding-top:1.2rem}
+.links a,.links button{font:inherit;font-size:.88rem;font-weight:700;padding:.5rem 1.1rem;border-radius:999px;color:var(--lime);background:transparent;border:0;cursor:pointer;box-shadow:inset 0 0 0 1.5px var(--lime);transition:background .2s,color .2s}
+.links a:hover,.links button:hover{background:var(--lime);color:var(--ink)}
+.poin{display:flex;align-items:center;gap:.5rem;width:100%;margin-top:1.2rem;padding:1rem 0 0;border:0;border-top:1px solid var(--line);background:none;color:var(--paper);font:inherit;font-weight:700;font-size:.92rem;text-align:left;cursor:pointer;transition:color .2s}
+.poin::after{content:"";width:.55rem;height:.55rem;border-right:2px solid var(--lime);border-bottom:2px solid var(--lime);transform:translateY(-2px) rotate(45deg);transition:transform .25s}
+.poin:hover{color:var(--lime)}
+.poin:hover::after{transform:translateY(2px) rotate(45deg)}
+
+/* Popup detail */
+dialog{margin:auto;padding:0;border:0;color:var(--paper);width:min(860px,100% - 1.5rem);max-height:min(88vh,100% - 1.5rem);overflow:auto;border-radius:26px;
+  background:radial-gradient(60% 80% at 100% 0%,rgba(215,27,6,.4),transparent 70%),var(--surf);box-shadow:inset 0 0 0 1px rgba(255,241,237,.3),0 40px 80px -20px rgba(0,0,0,.8)}
+dialog::backdrop{background:rgba(25,1,3,.78);backdrop-filter:blur(4px)}
+dialog[open]{animation:pop .22s ease}
+dialog[open]::backdrop{animation:fade .22s ease}
+@keyframes pop{from{opacity:0;transform:translateY(14px) scale(.98)}}
+@keyframes fade{from{opacity:0}}
+.inner{padding:clamp(1.4rem,4vw,2.4rem)}
+.mhead{display:flex;justify-content:space-between;align-items:start;gap:1rem;margin-bottom:1.6rem}
+.mhead h3{font-size:clamp(1.5rem,3.4vw,2.2rem);margin:0}
+.x{flex:none;width:2.6rem;height:2.6rem;border-radius:50%;border:0;cursor:pointer;background:var(--lime);color:var(--ink);font:inherit;font-size:1.3rem;font-weight:800;line-height:1;transition:transform .2s}
+.x:hover{transform:rotate(90deg)}
+.pts{display:grid;grid-template-columns:1fr 1fr;gap:2.4rem}
+.pts h4{font-size:.92rem;font-weight:800;color:var(--lime);margin:0 0 .7rem}
+.minis{display:grid;grid-template-columns:repeat(3,1fr);gap:.5rem;margin-bottom:1rem}
+.stat{padding:.7rem .8rem;border-radius:12px;background:rgba(37,1,4,.55);box-shadow:inset 0 0 0 1px rgba(255,241,237,.25)}
+.stat b{display:block;font-size:1.4rem;font-weight:800;letter-spacing:-.04em;line-height:1;color:var(--lime)}
+.stat span{font-size:.75rem;line-height:1.3;display:block;margin-top:.3rem;opacity:.9}
+.flow{list-style:none;padding:0;display:grid;grid-template-columns:1fr;gap:.6rem;font-size:.92rem}
 .flow li{position:relative;padding-left:1.1rem;line-height:1.4}
 .flow li::before{content:"";position:absolute;left:0;top:.5em;width:.5rem;height:.5rem;border-radius:50%;background:var(--lime)}
-.src{color:var(--lime);font-weight:700;font-size:.85rem;margin-bottom:.5rem}
-.two{align-items:start}
-.two .card p{max-width:62ch}
-.two .card h3{font-size:clamp(1.7rem,3.4vw,2.4rem)}
-.pts{display:grid;grid-template-columns:1fr 1fr;gap:2.4rem}
-.pts .col>h4:first-child{margin-top:0}
-.card .tags{margin-top:1rem}
-.card .links{margin-top:1.2rem}
-details{margin-top:1.2rem;border-top:1px solid var(--line);padding-top:1rem}
-summary{list-style:none;cursor:pointer;display:inline-flex;align-items:center;gap:.5rem;font-weight:700;font-size:.92rem;color:var(--paper)}
-summary::-webkit-details-marker{display:none}
-summary::after{content:"";width:.55rem;height:.55rem;border-right:2px solid var(--lime);border-bottom:2px solid var(--lime);transform:rotate(45deg) translateY(-2px);transition:transform .25s}
-details[open] summary::after{transform:rotate(-135deg) translateY(-2px)}
-summary:hover{color:var(--lime)}
-.pts{margin-top:1rem;animation:fade .3s ease}
-.pts h4{font-size:.92rem;font-weight:800;color:var(--lime);margin:1.1rem 0 .6rem}
-.pts h4:first-child{margin-top:0}
-.minis{display:grid;grid-template-columns:repeat(3,1fr);gap:.5rem;margin-bottom:.9rem}
-.minis .stat{padding:.7rem .8rem;border-radius:12px}
-.minis .stat b{font-size:1.4rem}
-.minis .stat span{font-size:.75rem;line-height:1.3;display:block;margin-top:.3rem}
-.flow.one{grid-template-columns:1fr;margin-top:0}
-@keyframes fade{from{opacity:0;transform:translateY(-4px)}}
-.stats{display:flex;flex-direction:column;gap:.8rem}
-.stat{padding:1.1rem 1.3rem;border-radius:16px;background:rgba(37,1,4,.55);box-shadow:inset 0 0 0 1px rgba(255,241,237,.25)}
-.stat b{display:block;font-size:2.4rem;font-weight:800;letter-spacing:-.04em;line-height:1;color:var(--lime)}
-.stat span{font-size:.9rem;opacity:.9}
-.links{display:flex;flex-wrap:wrap;gap:.6rem;margin-top:1.6rem}
-.links a{font-size:.88rem;font-weight:700;padding:.5rem 1.1rem;border-radius:999px;color:var(--lime);box-shadow:inset 0 0 0 1.5px var(--lime);transition:background .2s,color .2s}
-.links a:hover{background:var(--lime);color:var(--ink)}
-.two{display:grid;grid-template-columns:1fr;gap:1rem}
 .note{margin-top:1.2rem;font-size:.9rem;opacity:.75}
 
 .skills{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem}
@@ -107,16 +108,17 @@ summary:hover{color:var(--lime)}
 .ext a{text-decoration:underline;text-underline-offset:5px;text-decoration-thickness:1.5px}
 footer{padding:2.5rem 0 3rem;font-size:.88rem;opacity:.65}
 
+@media (max-width:1020px){
+  .two{grid-template-columns:1fr 1fr}
+}
 @media (max-width:860px){
   .menu{display:none}
   .nav .wrap{grid-template-columns:1fr auto}
   .hero{padding-top:7.5rem}
-  .feat,.two,.skills{grid-template-columns:1fr}
-  .minis{grid-template-columns:1fr 1fr 1fr}
-  .pts{grid-template-columns:1fr;gap:0}
-  .flow{grid-template-columns:1fr}
+  .two,.skills{grid-template-columns:1fr}
+  .pts{grid-template-columns:1fr;gap:1.6rem}
 }
-@media (prefers-reduced-motion:reduce){*,*::before,*::after{transition:none!important}html{scroll-behavior:auto}}
+@media (prefers-reduced-motion:reduce){*,*::before,*::after{transition:none!important;animation:none!important}html{scroll-behavior:auto}}
 </style>
 </head>
 <body>
@@ -153,32 +155,35 @@ footer{padding:2.5rem 0 3rem;font-size:.88rem;opacity:.65}
         <p>Analisis data transaksi stok dan penjualan sebuah toserba dengan R dan Quarto.</p>
         <div class="tags"><span>R</span><span>Quarto</span></div>
         <div class="links"><a href="https://github.com/Izanafza13/retail-data-exploration-r">Lihat di GitHub ↗</a><a href="https://izanafza13.github.io/retail-data-exploration-r/">Lihat demo ↗</a></div>
-        <details>
-          <summary>Lihat poin</summary>
-          <div class="pts"><div class="col">
-            <h4>Temuan</h4>
-            <div class="minis">
-              <div class="stat"><b>1.753</b><span>barang terjual April 2020, tertinggi</span></div>
-              <div class="stat"><b>170</b><span>barang terjual Juni 2020</span></div>
-              <div class="stat"><b>±4.000</b><span>barang masuk per bulan</span></div>
-            </div>
-            <ul class="flow one">
-              <li>Penjualan menurun dari April sampai Juni 2020</li>
-              <li>Stok masuk jauh di atas penjualan, jadi stok masih berlebih</li>
-              <li>Barang Rp10.000 sampai Rp15.000 paling laku, disusul barang di bawah Rp5.000</li>
-            </ul>
-          </div><div class="col">
-            <h4>Langkah analisis</h4>
-            <ul class="flow one">
-              <li>Import dan eksplorasi data</li>
-              <li>Pembersihan tipe data tanggal dan harga</li>
-              <li>Penjualan per bulan</li>
-              <li>10 pelanggan dengan pembelian terbesar</li>
-              <li>Perbandingan barang masuk dan keluar</li>
-              <li>Hubungan harga dan jumlah transaksi</li>
-            </ul>
-          </div></div>
-        </details>
+        <button type="button" class="poin" data-open>Lihat poin</button>
+        <dialog aria-label="Poin proyek eksplorasi data ritel">
+          <div class="inner">
+            <div class="mhead"><h3>Eksplorasi data ritel Mitra Toserba Xera</h3><button type="button" class="x" data-close aria-label="Tutup">×</button></div>
+            <div class="pts"><div>
+              <h4>Temuan</h4>
+              <div class="minis">
+                <div class="stat"><b>1.753</b><span>barang terjual April 2020, tertinggi</span></div>
+                <div class="stat"><b>170</b><span>barang terjual Juni 2020</span></div>
+                <div class="stat"><b>±4.000</b><span>barang masuk per bulan</span></div>
+              </div>
+              <ul class="flow">
+                <li>Penjualan menurun dari April sampai Juni 2020</li>
+                <li>Stok masuk jauh di atas penjualan, jadi stok masih berlebih</li>
+                <li>Barang Rp10.000 sampai Rp15.000 paling laku, disusul barang di bawah Rp5.000</li>
+              </ul>
+            </div><div>
+              <h4>Langkah analisis</h4>
+              <ul class="flow">
+                <li>Import dan eksplorasi data</li>
+                <li>Pembersihan tipe data tanggal dan harga</li>
+                <li>Penjualan per bulan</li>
+                <li>10 pelanggan dengan pembelian terbesar</li>
+                <li>Perbandingan barang masuk dan keluar</li>
+                <li>Hubungan harga dan jumlah transaksi</li>
+              </ul>
+            </div></div>
+          </div>
+        </dialog>
       </article>
 
       <article class="card" style="--g:0% 100%">
@@ -187,66 +192,72 @@ footer{padding:2.5rem 0 3rem;font-size:.88rem;opacity:.65}
         <p>Analisis data penyewaan sepeda Capital Bikeshare di Washington D.C. tahun 2011 sampai 2012, dilengkapi dashboard interaktif.</p>
         <div class="tags"><span>Python</span><span>Streamlit</span><span>Jupyter Notebook</span></div>
         <div class="links"><a href="https://github.com/Izanafza13/bike-sharing-dashboard">Lihat di GitHub ↗</a><a href="https://bike-sharing-dashboard-analytics.streamlit.app/">Lihat demo ↗</a></div>
-        <details>
-          <summary>Lihat poin</summary>
-          <div class="pts"><div class="col">
-            <h4>Temuan</h4>
-            <div class="minis">
-              <div class="stat"><b>≈57,9%</b><span>penyewaan hari kerja ada di tujuh jam sibuk</span></div>
-              <div class="stat"><b>≈63,0%</b><span>penurunan saat hujan atau salju ringan</span></div>
-              <div class="stat"><b>≈64,9%</b><span>pertumbuhan penyewaan 2012 dibanding 2011</span></div>
-            </div>
-            <ul class="flow one">
-              <li>Hari kerja memuncak sekitar pukul 08.00 dan 17.00. Di akhir pekan dan libur, jam sibuk yang sama hanya ≈34,8%</li>
-              <li>Cuaca berkabut menurunkan penyewaan ≈17,2%. Pengguna casual paling terdampak oleh hujan atau salju ringan (turun ≈80,8%, registered ≈58,7%)</li>
-              <li>Penyewaan naik di semua bulan pada 2012, dengan pertumbuhan terendah di Juni (≈41%)</li>
-            </ul>
-          </div><div class="col">
-            <h4>Langkah analisis</h4>
-            <ul class="flow one">
-              <li>Merumuskan tiga pertanyaan bisnis: jam sibuk, dampak cuaca, dan pertumbuhan tahunan</li>
-              <li>Membersihkan data penyewaan per jam dan harian</li>
-              <li>Mengelompokkan data: segmen waktu, tingkat permintaan harian, dan rentang suhu</li>
-              <li>Menganalisis di Jupyter Notebook</li>
-              <li>Menyajikan hasil dalam dashboard Streamlit</li>
-            </ul>
-          </div></div>
-        </details>
+        <button type="button" class="poin" data-open>Lihat poin</button>
+        <dialog aria-label="Poin proyek analisis penyewaan sepeda">
+          <div class="inner">
+            <div class="mhead"><h3>Analisis penyewaan sepeda</h3><button type="button" class="x" data-close aria-label="Tutup">×</button></div>
+            <div class="pts"><div>
+              <h4>Temuan</h4>
+              <div class="minis">
+                <div class="stat"><b>≈57,9%</b><span>penyewaan hari kerja ada di tujuh jam sibuk</span></div>
+                <div class="stat"><b>≈63,0%</b><span>penurunan saat hujan atau salju ringan</span></div>
+                <div class="stat"><b>≈64,9%</b><span>pertumbuhan penyewaan 2012 dibanding 2011</span></div>
+              </div>
+              <ul class="flow">
+                <li>Hari kerja memuncak sekitar pukul 08.00 dan 17.00. Di akhir pekan dan libur, jam sibuk yang sama hanya ≈34,8%</li>
+                <li>Cuaca berkabut menurunkan penyewaan ≈17,2%. Pengguna casual paling terdampak oleh hujan atau salju ringan (turun ≈80,8%, registered ≈58,7%)</li>
+                <li>Penyewaan naik di semua bulan pada 2012, dengan pertumbuhan terendah di Juni (≈41%)</li>
+              </ul>
+            </div><div>
+              <h4>Langkah analisis</h4>
+              <ul class="flow">
+                <li>Merumuskan tiga pertanyaan bisnis: jam sibuk, dampak cuaca, dan pertumbuhan tahunan</li>
+                <li>Membersihkan data penyewaan per jam dan harian</li>
+                <li>Mengelompokkan data: segmen waktu, tingkat permintaan harian, dan rentang suhu</li>
+                <li>Menganalisis di Jupyter Notebook</li>
+                <li>Menyajikan hasil dalam dashboard Streamlit</li>
+              </ul>
+            </div></div>
+          </div>
+        </dialog>
       </article>
 
-            <article class="card" style="--g:100% 100%">
+      <article class="card" style="--g:100% 100%">
         <div class="src">Proyek riset</div>
         <h3>Klasifikasi kesesuaian lahan padi</h3>
         <p>Dashboard Streamlit untuk mengklasifikasikan kesesuaian lahan sawah berdasarkan pH tanah, suhu tanah, dan kelembaban udara, dengan model Random Forest, MLP, serta Hybrid Soft Voting dan Stacking. Dilengkapi interpretabilitas SHAP dan LIME serta prediksi interaktif.</p>
         <div class="tags"><span>Python</span><span>Streamlit</span><span>Machine Learning</span></div>
         <div class="links"><a href="https://github.com/Izanafza13/tanahKlasifikasi_Riset">Lihat di GitHub ↗</a></div>
-        <details>
-          <summary>Lihat poin</summary>
-          <div class="pts"><div class="col">
-            <h4>Temuan</h4>
-            <div class="minis">
-              <div class="stat"><b>4</b><span>model dibandingkan</span></div>
-              <div class="stat"><b>3</b><span>fitur: pH, suhu tanah, kelembaban udara</span></div>
-              <div class="stat"><b>3</b><span>kelas kesesuaian lahan</span></div>
-            </div>
-            <ul class="flow one">
-              <li>Lahan diberi label rule-based: Sangat Cocok, Kurang Cocok, dan Tidak Cocok</li>
-              <li>Model dievaluasi dengan akurasi dan confusion matrix</li>
-              <li>Fitur paling berpengaruh dijelaskan dengan SHAP, dan prediksi per sampel dengan LIME</li>
-            </ul>
-          </div><div class="col">
-            <h4>Langkah analisis</h4>
-            <ul class="flow one">
-              <li>Upload data CSV dan pilih fitur</li>
-              <li>Statistik deskriptif data</li>
-              <li>Imputasi nilai kosong dengan KNN dan pelabelan rule-based</li>
-              <li>Split data, SMOTE, dan normalisasi</li>
-              <li>Pelatihan dan evaluasi model</li>
-              <li>Interpretasi model dengan SHAP dan LIME</li>
-              <li>Prediksi interaktif dari input manual</li>
-            </ul>
-          </div></div>
-        </details>
+        <button type="button" class="poin" data-open>Lihat poin</button>
+        <dialog aria-label="Poin proyek klasifikasi kesesuaian lahan padi">
+          <div class="inner">
+            <div class="mhead"><h3>Klasifikasi kesesuaian lahan padi</h3><button type="button" class="x" data-close aria-label="Tutup">×</button></div>
+            <div class="pts"><div>
+              <h4>Temuan</h4>
+              <div class="minis">
+                <div class="stat"><b>4</b><span>model dibandingkan</span></div>
+                <div class="stat"><b>3</b><span>fitur: pH, suhu tanah, kelembaban udara</span></div>
+                <div class="stat"><b>3</b><span>kelas kesesuaian lahan</span></div>
+              </div>
+              <ul class="flow">
+                <li>Lahan diberi label rule-based: Sangat Cocok, Kurang Cocok, dan Tidak Cocok</li>
+                <li>Model dievaluasi dengan akurasi dan confusion matrix</li>
+                <li>Fitur paling berpengaruh dijelaskan dengan SHAP, dan prediksi per sampel dengan LIME</li>
+              </ul>
+            </div><div>
+              <h4>Langkah analisis</h4>
+              <ul class="flow">
+                <li>Upload data CSV dan pilih fitur</li>
+                <li>Statistik deskriptif data</li>
+                <li>Imputasi nilai kosong dengan KNN dan pelabelan rule-based</li>
+                <li>Split data, SMOTE, dan normalisasi</li>
+                <li>Pelatihan dan evaluasi model</li>
+                <li>Interpretasi model dengan SHAP dan LIME</li>
+                <li>Prediksi interaktif dari input manual</li>
+              </ul>
+            </div></div>
+          </div>
+        </dialog>
       </article>
     </div>
     <!-- TAMBAH proyek data analyst lain di sini (salin salah satu <article class="card">) -->
@@ -279,5 +290,15 @@ footer{padding:2.5rem 0 3rem;font-size:.88rem;opacity:.65}
 </main>
 
 <footer><div class="wrap">© 2026 Hamizan Afza Al Isyraqi, Bangkalan, Madura</div></footer>
+
+<script>
+document.addEventListener('click',function(e){
+  var o=e.target.closest('[data-open]');
+  if(o){o.closest('article').querySelector('dialog').showModal();return}
+  var c=e.target.closest('[data-close]');
+  if(c){c.closest('dialog').close();return}
+  if(e.target.tagName==='DIALOG')e.target.close();
+});
+</script>
 </body>
 </html>
