@@ -1,1 +1,212 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Web Developer | Hamizan Afza Al Isyraqi</title>
+<meta name="description" content="Portofolio web developer Hamizan Afza Al Isyraqi: landing page responsif untuk UMKM dengan HTML, CSS, JavaScript, SEO dasar, dan hosting Netlify.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;800&display=swap" rel="stylesheet">
+<style>
+:root{--ink:#250104;--red:#d71b06;--lime:#cdf73d;--paper:#fff1ed;--line:rgba(255,241,237,.25);
+--font:"Manrope",system-ui,-apple-system,"Segoe UI",sans-serif;
+--surf:linear-gradient(160deg,#3d0b10,#2b0307);--edge:inset 0 0 0 1px rgba(255,241,237,.28),0 26px 40px -26px rgba(0,0,0,.9)}
+*{box-sizing:border-box;margin:0}
+html{scroll-behavior:smooth;scroll-padding-top:5rem}
+body{background:var(--ink);color:var(--paper);font-family:var(--font);line-height:1.6;overflow-x:hidden}
+a{color:inherit;text-decoration:none}
+:focus-visible{outline:3px solid var(--lime);outline-offset:3px;border-radius:8px}
+.wrap{width:min(1180px,100% - 3rem);margin-inline:auto}
+h1,h2,h3{font-weight:500;line-height:1.02;letter-spacing:-.02em}
 
+.nav{position:fixed;inset:0 0 auto;z-index:30;padding:1.3rem 0;background:linear-gradient(var(--ink),rgba(37,1,4,0))}
+.nav .wrap{display:grid;grid-template-columns:1fr auto 1fr;align-items:center}
+.logo{display:flex;align-items:center;gap:.6rem;font-weight:800}
+.logo i{width:1.9rem;height:1.9rem;border-radius:8px;background:var(--red);display:grid;place-content:center;font-style:normal;font-size:.95rem}
+.menu{display:flex;gap:2.2rem;font-size:.92rem;font-weight:500}
+.menu a{opacity:.85;transition:color .2s}
+.menu a:hover{color:var(--lime);opacity:1}
+.pill{justify-self:end;font-size:.9rem;font-weight:600;padding:.6rem 1.4rem;border-radius:999px;box-shadow:inset 0 0 0 1.5px var(--paper);transition:background .2s,color .2s}
+.pill:hover{background:var(--lime);color:var(--ink);box-shadow:none}
+
+.hero{position:relative;padding:9.5rem 0 5rem;isolation:isolate;overflow:hidden;
+  background:radial-gradient(60% 85% at 15% 15%,rgba(215,27,6,.85),rgba(215,27,6,.32) 45%,transparent 78%),radial-gradient(38% 55% at 88% 60%,rgba(215,27,6,.32),transparent 72%),var(--ink)}
+.hero::after{content:"";position:absolute;inset:auto 0 0;height:45%;z-index:-1;background:linear-gradient(rgba(37,1,4,0),var(--ink) 92%)}
+.hero h1{font-size:clamp(3rem,10vw,8.5rem);text-transform:uppercase;letter-spacing:-.05em;max-width:12ch}
+.hero p{margin-top:1.6rem;max-width:36rem;font-size:1.1rem;color:rgba(255,241,237,.9)}
+.tags{display:flex;flex-wrap:wrap;gap:.45rem;margin-top:1.4rem}
+.tags span{font-size:.82rem;font-weight:600;padding:.2rem .8rem;border-radius:999px;background:rgba(255,241,237,.1);box-shadow:inset 0 0 0 1px rgba(255,241,237,.25)}
+.btns{display:flex;flex-wrap:wrap;gap:.8rem;margin-top:2rem}
+.btn{display:inline-flex;align-items:center;gap:.8rem;font-weight:800;padding:.5rem .5rem .5rem 1.6rem;border-radius:999px;background:var(--lime);color:var(--ink);transition:transform .2s}
+.btn b{display:grid;place-content:center;width:2.4rem;height:2.4rem;border-radius:50%;background:var(--ink);color:var(--lime)}
+.btn.ghost{background:transparent;color:var(--paper);box-shadow:inset 0 0 0 1.5px var(--paper);padding:.9rem 1.6rem}
+.btn:hover{transform:translateY(-3px)}
+
+section{padding:3rem 0 0}
+section>.wrap{position:relative;border-top:1px solid var(--line);padding:4rem 0 1rem}
+section>.wrap::before{content:"";position:absolute;top:-2px;left:0;width:5rem;height:3px;background:var(--lime)}
+.head{margin-bottom:2.4rem}
+.head h2{font-size:clamp(1.9rem,5vw,3.8rem);text-transform:uppercase}
+
+.card{border-radius:22px;padding:1.8rem;background:radial-gradient(70% 80% at var(--g,100% 0%),rgba(215,27,6,.3),transparent 65%),var(--surf);box-shadow:var(--edge)}
+.card h3{font-size:1.7rem;margin-bottom:.6rem}
+.card p{font-size:.98rem;opacity:.9;line-height:1.55}
+.feat{display:grid;grid-template-columns:1.5fr 1fr;gap:2rem;padding:2.2rem;margin-bottom:1rem;
+  background:radial-gradient(65% 95% at 12% 0%,rgba(215,27,6,.8),rgba(215,27,6,.28) 48%,transparent 78%),radial-gradient(45% 70% at 100% 100%,rgba(215,27,6,.38),transparent 72%),var(--ink);box-shadow:inset 0 0 0 1px rgba(215,27,6,.5)}
+.feat h3{font-size:clamp(1.8rem,4vw,2.8rem)}
+.feat .src{color:var(--lime);font-weight:700;font-size:.9rem;margin-bottom:.6rem}
+.flow{list-style:none;padding:0;margin-top:1.4rem;display:grid;grid-template-columns:1fr 1fr;gap:.6rem 1.4rem;font-size:.92rem}
+.flow li{position:relative;padding-left:1.1rem;line-height:1.4}
+.flow li::before{content:"";position:absolute;left:0;top:.5em;width:.5rem;height:.5rem;border-radius:50%;background:var(--lime)}
+.src{color:var(--lime);font-weight:700;font-size:.85rem;margin-bottom:.5rem}
+.two{align-items:start}
+.two .card p{max-width:62ch}
+.two .card h3{font-size:clamp(1.7rem,3.4vw,2.4rem)}
+.pts{display:grid;grid-template-columns:1fr 1fr;gap:2.4rem}
+.pts .col>h4:first-child{margin-top:0}
+.card .tags{margin-top:1rem}
+.card .links{margin-top:1.2rem}
+details{margin-top:1.2rem;border-top:1px solid var(--line);padding-top:1rem}
+summary{list-style:none;cursor:pointer;display:inline-flex;align-items:center;gap:.5rem;font-weight:700;font-size:.92rem;color:var(--paper)}
+summary::-webkit-details-marker{display:none}
+summary::after{content:"";width:.55rem;height:.55rem;border-right:2px solid var(--lime);border-bottom:2px solid var(--lime);transform:rotate(45deg) translateY(-2px);transition:transform .25s}
+details[open] summary::after{transform:rotate(-135deg) translateY(-2px)}
+summary:hover{color:var(--lime)}
+.pts{margin-top:1rem;animation:fade .3s ease}
+.pts h4{font-size:.92rem;font-weight:800;color:var(--lime);margin:1.1rem 0 .6rem}
+.pts h4:first-child{margin-top:0}
+.minis{display:grid;grid-template-columns:repeat(3,1fr);gap:.5rem;margin-bottom:.9rem}
+.minis .stat{padding:.7rem .8rem;border-radius:12px}
+.minis .stat b{font-size:1.4rem}
+.minis .stat span{font-size:.75rem;line-height:1.3;display:block;margin-top:.3rem}
+.flow.one{grid-template-columns:1fr;margin-top:0}
+@keyframes fade{from{opacity:0;transform:translateY(-4px)}}
+.stats{display:flex;flex-direction:column;gap:.8rem}
+.stat{padding:1.1rem 1.3rem;border-radius:16px;background:rgba(37,1,4,.55);box-shadow:inset 0 0 0 1px rgba(255,241,237,.25)}
+.stat b{display:block;font-size:2.4rem;font-weight:800;letter-spacing:-.04em;line-height:1;color:var(--lime)}
+.stat span{font-size:.9rem;opacity:.9}
+.links{display:flex;flex-wrap:wrap;gap:.6rem;margin-top:1.6rem}
+.links a{font-size:.88rem;font-weight:700;padding:.5rem 1.1rem;border-radius:999px;color:var(--lime);box-shadow:inset 0 0 0 1.5px var(--lime);transition:background .2s,color .2s}
+.links a:hover{background:var(--lime);color:var(--ink)}
+.two{display:grid;grid-template-columns:1fr;gap:1rem}
+.note{margin-top:1.2rem;font-size:.9rem;opacity:.75}
+
+.skills{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem}
+.skills .card{min-height:11rem}
+.skills .card h3{font-size:1.5rem}
+.skills .card:nth-child(1){--g:0% 0%}.skills .card:nth-child(2){--g:100% 100%}.skills .card:nth-child(3){--g:0% 100%}
+.skills .card:nth-child(4){--g:100% 0%}.skills .card:nth-child(5){--g:50% 100%}
+
+.contact{padding:clamp(2rem,6vw,4.5rem);border-radius:32px;background:radial-gradient(60% 120% at 85% 105%,rgba(215,27,6,.85),rgba(215,27,6,.3) 50%,transparent 80%),radial-gradient(40% 70% at 0% 0%,rgba(215,27,6,.3),transparent 75%),var(--ink);box-shadow:inset 0 0 0 1px rgba(215,27,6,.45)}
+.contact h2{font-size:clamp(2rem,5vw,3.8rem);text-transform:uppercase;max-width:16ch}
+.mail{display:inline-flex;align-items:center;gap:1rem;margin-top:2rem;background:var(--lime);color:var(--ink);font-weight:800;font-size:clamp(1rem,2.6vw,1.5rem);padding:.6rem .6rem .6rem 1.8rem;border-radius:999px;overflow-wrap:anywhere;transition:transform .2s}
+.mail b{flex:none;display:grid;place-content:center;width:3rem;height:3rem;border-radius:50%;background:var(--ink);color:var(--lime)}
+.mail:hover{transform:translateY(-3px)}
+.ext{display:flex;gap:1.8rem;margin-top:1.6rem;font-weight:600}
+.ext a{text-decoration:underline;text-underline-offset:5px;text-decoration-thickness:1.5px}
+footer{padding:2.5rem 0 3rem;font-size:.88rem;opacity:.65}
+
+@media (max-width:860px){
+  .menu{display:none}
+  .nav .wrap{grid-template-columns:1fr auto}
+  .hero{padding-top:7.5rem}
+  .feat,.two,.skills{grid-template-columns:1fr}
+  .minis{grid-template-columns:1fr 1fr 1fr}
+  .pts{grid-template-columns:1fr;gap:0}
+  .flow{grid-template-columns:1fr}
+}
+@media (prefers-reduced-motion:reduce){*,*::before,*::after{transition:none!important}html{scroll-behavior:auto}}
+</style>
+</head>
+<body>
+
+<nav class="nav" aria-label="Navigasi utama">
+  <div class="wrap">
+    <a class="logo" href="../"><i>H</i>Afza</a>
+    <div class="menu"><a href="#proyek">Proyek</a><a href="#keahlian">Keahlian</a><a href="#kontak">Kontak</a></div>
+    <a class="pill" href="../">Kembali ke beranda</a>
+  </div>
+</nav>
+
+<main>
+<header class="hero">
+  <div class="wrap">
+    <h1>Web developer</h1>
+    <p>Saya membangun landing page untuk UMKM, dari tampilan yang responsif di HP dan desktop sampai SEO dasar dan hosting.</p>
+    <div class="tags"><span>HTML</span><span>CSS</span><span>JavaScript</span><span>SEO</span><span>Netlify</span></div>
+    <div class="btns">
+      <a class="btn" href="#proyek">Lihat proyek <b aria-hidden="true">↗</b></a>
+      <a class="btn ghost" href="mailto:hamizanafza13@gmail.com">Kirim email</a>
+    </div>
+  </div>
+</header>
+
+<section id="proyek">
+  <div class="wrap">
+    <div class="head"><h2>Proyek</h2></div>
+
+    <div class="two">
+      <article class="card" style="--g:100% 0%">
+        <div class="src">Landing page UMKM</div>
+        <h3>Orion Private Class</h3>
+        <p>Landing page untuk layanan les privat TK, SD, SMP, dan SMA di Pamekasan Kota, dengan Kelas Reguler dan Kelas Excellent.</p>
+        <div class="tags"><span>HTML</span><span>CSS</span><span>JavaScript</span><span>Netlify</span></div>
+        <div class="links"><a href="https://github.com/Izanafza13/OrionClass">Lihat di GitHub ↗</a><a href="https://orionclass.netlify.app/">Lihat demo ↗</a></div>
+        <details>
+          <summary>Lihat poin</summary>
+          <div class="pts"><div class="col">
+            <h4>Fitur</h4>
+            <div class="minis">
+              <div class="stat"><b>TK-SMA</b><span>jenjang yang dilayani</span></div>
+              <div class="stat"><b>2 kelas</b><span>Reguler dan Excellent</span></div>
+              <div class="stat"><b>2 cara</b><span>tutor ke rumah atau di lembaga</span></div>
+            </div>
+            <ul class="flow one">
+              <li>Daftar harga lengkap untuk tutor ke rumah dan kelas di lembaga</li>
+              <li>Testimoni, profil singkat, area layanan dengan peta, dan FAQ</li>
+              <li>Tombol chat WhatsApp</li>
+            </ul>
+          </div><div class="col">
+            <h4>Teknis</h4>
+            <ul class="flow one">
+              <li>Tampilan responsif untuk HP dan desktop, dengan menu navigasi mobile</li>
+              <li>SEO dasar: meta description, canonical URL, Open Graph, Twitter Card, dan JSON-LD</li>
+              <li>robots.txt dan sitemap.xml agar mudah ditemukan mesin pencari</li>
+              <li>Di-host di Netlify dan terhubung ke repo GitHub</li>
+            </ul>
+          </div></div>
+        </details>
+      </article>
+    </div>
+    <!-- TAMBAH proyek web developer lain di sini (salin salah satu <article class="card">) -->
+  </div>
+</section>
+
+<section id="keahlian">
+  <div class="wrap">
+    <div class="head"><h2>Keahlian</h2></div>
+    <div class="skills">
+      <div class="card"><h3>HTML</h3><p>Struktur halaman landing page yang rapi dan mudah dibaca mesin pencari.</p></div>
+      <div class="card"><h3>CSS</h3><p>Tampilan responsif yang nyaman di HP maupun desktop.</p></div>
+      <div class="card"><h3>JavaScript</h3><p>Menu navigasi mobile dan interaksi di halaman.</p></div>
+      <div class="card"><h3>SEO dasar</h3><p>Meta tag, canonical URL, Open Graph, JSON-LD, robots.txt, dan sitemap.xml.</p></div>
+      <div class="card"><h3>Netlify dan GitHub</h3><p>Hosting di Netlify yang terhubung ke repo GitHub.</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="kontak" style="padding-bottom:0">
+  <div class="wrap">
+    <div class="contact">
+      <h2>Butuh website untuk usaha Anda?</h2>
+      <a class="mail" href="mailto:hamizanafza13@gmail.com">hamizanafza13@gmail.com <b aria-hidden="true">↗</b></a>
+      <div class="ext"><a href="https://linkedin.com/in/izanafza">LinkedIn</a><a href="https://github.com/Izanafza13">GitHub</a><a href="../">Beranda</a></div>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer><div class="wrap">© 2026 Hamizan Afza Al Isyraqi, Bangkalan, Madura</div></footer>
+</body>
+</html>
