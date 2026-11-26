@@ -31,7 +31,8 @@ h1,h2,h3{font-weight:500;line-height:1.02;letter-spacing:-.02em}
 .pill:hover{background:var(--lime);color:var(--ink);box-shadow:none}
 
 .hero{position:relative;padding:9.5rem 0 5rem;isolation:isolate;overflow:hidden;
-  background:radial-gradient(55% 80% at 15% 20%,rgba(215,27,6,.85),rgba(215,27,6,.3) 45%,transparent 75%),radial-gradient(45% 70% at 100% 100%,rgba(215,27,6,.35),transparent 70%),var(--ink)}
+  background:radial-gradient(60% 85% at 15% 15%,rgba(215,27,6,.85),rgba(215,27,6,.32) 45%,transparent 78%),radial-gradient(38% 55% at 88% 60%,rgba(215,27,6,.32),transparent 72%),var(--ink)}
+.hero::after{content:"";position:absolute;inset:auto 0 0;height:45%;z-index:-1;background:linear-gradient(rgba(37,1,4,0),var(--ink) 92%)}
 .hero h1{font-size:clamp(3rem,10vw,8.5rem);text-transform:uppercase;letter-spacing:-.05em;max-width:12ch}
 .hero p{margin-top:1.6rem;max-width:36rem;font-size:1.1rem;color:rgba(255,241,237,.9)}
 .tags{display:flex;flex-wrap:wrap;gap:.45rem;margin-top:1.4rem}
@@ -58,6 +59,29 @@ section>.wrap::before{content:"";position:absolute;top:-2px;left:0;width:5rem;he
 .flow{list-style:none;padding:0;margin-top:1.4rem;display:grid;grid-template-columns:1fr 1fr;gap:.6rem 1.4rem;font-size:.92rem}
 .flow li{position:relative;padding-left:1.1rem;line-height:1.4}
 .flow li::before{content:"";position:absolute;left:0;top:.5em;width:.5rem;height:.5rem;border-radius:50%;background:var(--lime)}
+.src{color:var(--lime);font-weight:700;font-size:.85rem;margin-bottom:.5rem}
+.two{align-items:start}
+.two .card p{max-width:62ch}
+.two .card h3{font-size:clamp(1.7rem,3.4vw,2.4rem)}
+.pts{display:grid;grid-template-columns:1fr 1fr;gap:2.4rem}
+.pts .col>h4:first-child{margin-top:0}
+.card .tags{margin-top:1rem}
+.card .links{margin-top:1.2rem}
+details{margin-top:1.2rem;border-top:1px solid var(--line);padding-top:1rem}
+summary{list-style:none;cursor:pointer;display:inline-flex;align-items:center;gap:.5rem;font-weight:700;font-size:.92rem;color:var(--paper)}
+summary::-webkit-details-marker{display:none}
+summary::after{content:"";width:.55rem;height:.55rem;border-right:2px solid var(--lime);border-bottom:2px solid var(--lime);transform:rotate(45deg) translateY(-2px);transition:transform .25s}
+details[open] summary::after{transform:rotate(-135deg) translateY(-2px)}
+summary:hover{color:var(--lime)}
+.pts{margin-top:1rem;animation:fade .3s ease}
+.pts h4{font-size:.92rem;font-weight:800;color:var(--lime);margin:1.1rem 0 .6rem}
+.pts h4:first-child{margin-top:0}
+.minis{display:grid;grid-template-columns:repeat(3,1fr);gap:.5rem;margin-bottom:.9rem}
+.minis .stat{padding:.7rem .8rem;border-radius:12px}
+.minis .stat b{font-size:1.4rem}
+.minis .stat span{font-size:.75rem;line-height:1.3;display:block;margin-top:.3rem}
+.flow.one{grid-template-columns:1fr;margin-top:0}
+@keyframes fade{from{opacity:0;transform:translateY(-4px)}}
 .stats{display:flex;flex-direction:column;gap:.8rem}
 .stat{padding:1.1rem 1.3rem;border-radius:16px;background:rgba(37,1,4,.55);box-shadow:inset 0 0 0 1px rgba(255,241,237,.25)}
 .stat b{display:block;font-size:2.4rem;font-weight:800;letter-spacing:-.04em;line-height:1;color:var(--lime)}
@@ -65,7 +89,7 @@ section>.wrap::before{content:"";position:absolute;top:-2px;left:0;width:5rem;he
 .links{display:flex;flex-wrap:wrap;gap:.6rem;margin-top:1.6rem}
 .links a{font-size:.88rem;font-weight:700;padding:.5rem 1.1rem;border-radius:999px;color:var(--lime);box-shadow:inset 0 0 0 1.5px var(--lime);transition:background .2s,color .2s}
 .links a:hover{background:var(--lime);color:var(--ink)}
-.two{display:grid;grid-template-columns:1fr 1fr;gap:1rem}
+.two{display:grid;grid-template-columns:1fr;gap:1rem}
 .note{margin-top:1.2rem;font-size:.9rem;opacity:.75}
 
 .skills{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem}
@@ -88,6 +112,8 @@ footer{padding:2.5rem 0 3rem;font-size:.88rem;opacity:.65}
   .nav .wrap{grid-template-columns:1fr auto}
   .hero{padding-top:7.5rem}
   .feat,.two,.skills{grid-template-columns:1fr}
+  .minis{grid-template-columns:1fr 1fr 1fr}
+  .pts{grid-template-columns:1fr;gap:0}
   .flow{grid-template-columns:1fr}
 }
 @media (prefers-reduced-motion:reduce){*,*::before,*::after{transition:none!important}html{scroll-behavior:auto}}
@@ -120,37 +146,78 @@ footer{padding:2.5rem 0 3rem;font-size:.88rem;opacity:.65}
   <div class="wrap">
     <div class="head"><h2>Proyek</h2></div>
 
-    <article class="card feat">
-      <div>
+    <div class="two">
+      <article class="card" style="--g:100% 0%">
         <div class="src">Studi kasus DQLab</div>
         <h3>Eksplorasi data ritel Mitra Toserba Xera</h3>
-        <p style="margin-top:.8rem">Analisis data transaksi stok dan penjualan sebuah toserba dengan R dan Quarto. Pertanyaannya sederhana: bagaimana tren penjualan, siapa pelanggan terbesar, apakah stok berlebih, dan di rentang harga berapa barang paling laku.</p>
-        <ul class="flow">
-          <li>Import dan eksplorasi data</li>
-          <li>Pembersihan tipe data tanggal dan harga</li>
-          <li>Penjualan per bulan</li>
-          <li>10 pelanggan dengan pembelian terbesar</li>
-          <li>Perbandingan barang masuk dan keluar</li>
-          <li>Hubungan harga dan jumlah transaksi</li>
-        </ul>
-        <div class="tags"><span>R</span><span>Quarto</span><span>aggregate</span><span>barplot</span><span>histogram</span></div>
-        <!-- Tambahkan link "Lihat laporan" di sini jika hasil render HTML sudah di-host -->
+        <p>Analisis data transaksi stok dan penjualan sebuah toserba dengan R dan Quarto.</p>
+        <div class="tags"><span>R</span><span>Quarto</span></div>
+        <!-- Tambahkan link "Lihat laporan" jika hasil render HTML sudah di-host -->
         <div class="links"><a href="https://github.com/Izanafza13/retail-data-exploration-r">Lihat di GitHub ↗</a></div>
-      </div>
-      <div class="stats">
-        <div class="stat"><b>1.753</b><span>barang terjual pada April 2020, penjualan tertinggi</span></div>
-        <div class="stat"><b>170</b><span>barang terjual pada Juni 2020, turun tajam dari April</span></div>
-        <div class="stat"><b>±4.000</b><span>barang masuk per bulan, jauh di atas penjualan</span></div>
-      </div>
-    </article>
-
-    <div class="two">
-      <article class="card" style="--g:0% 100%">
-        <h3>Barang paling laku</h3>
-        <p>Barang di rentang harga Rp10.000 sampai Rp15.000 paling banyak terjual, disusul barang di bawah Rp5.000. Temuan ini berasal dari histogram hubungan harga dan jumlah transaksi pada proyek ritel di atas.</p>
+        <details>
+          <summary>Lihat poin</summary>
+          <div class="pts"><div class="col">
+            <h4>Temuan</h4>
+            <div class="minis">
+              <div class="stat"><b>1.753</b><span>barang terjual April 2020, tertinggi</span></div>
+              <div class="stat"><b>170</b><span>barang terjual Juni 2020</span></div>
+              <div class="stat"><b>±4.000</b><span>barang masuk per bulan</span></div>
+            </div>
+            <ul class="flow one">
+              <li>Penjualan menurun dari April sampai Juni 2020</li>
+              <li>Stok masuk jauh di atas penjualan, jadi stok masih berlebih</li>
+              <li>Barang Rp10.000 sampai Rp15.000 paling laku, disusul barang di bawah Rp5.000</li>
+            </ul>
+          </div><div class="col">
+            <h4>Langkah analisis</h4>
+            <ul class="flow one">
+              <li>Import dan eksplorasi data</li>
+              <li>Pembersihan tipe data tanggal dan harga</li>
+              <li>Penjualan per bulan</li>
+              <li>10 pelanggan dengan pembelian terbesar</li>
+              <li>Perbandingan barang masuk dan keluar</li>
+              <li>Hubungan harga dan jumlah transaksi</li>
+            </ul>
+          </div></div>
+        </details>
       </article>
+
+      <article class="card" style="--g:0% 100%">
+        <div class="src">Proyek analisis data</div>
+        <h3>Analisis penyewaan sepeda</h3>
+        <p>Analisis data penyewaan sepeda Capital Bikeshare di Washington D.C. tahun 2011 sampai 2012, dilengkapi dashboard interaktif.</p>
+        <div class="tags"><span>Python</span><span>Streamlit</span><span>Jupyter Notebook</span></div>
+        <div class="links"><a href="https://github.com/Izanafza13/bike-sharing-dashboard">Lihat di GitHub ↗</a><a href="https://bike-sharing-dashboard-analytics.streamlit.app/">Lihat demo ↗</a></div>
+        <details>
+          <summary>Lihat poin</summary>
+          <div class="pts"><div class="col">
+            <h4>Temuan</h4>
+            <div class="minis">
+              <div class="stat"><b>≈57,9%</b><span>penyewaan hari kerja ada di tujuh jam sibuk</span></div>
+              <div class="stat"><b>≈63,0%</b><span>penurunan saat hujan atau salju ringan</span></div>
+              <div class="stat"><b>≈64,9%</b><span>pertumbuhan penyewaan 2012 dibanding 2011</span></div>
+            </div>
+            <ul class="flow one">
+              <li>Hari kerja memuncak sekitar pukul 08.00 dan 17.00. Di akhir pekan dan libur, jam sibuk yang sama hanya ≈34,8%</li>
+              <li>Cuaca berkabut menurunkan penyewaan ≈17,2%. Pengguna casual paling terdampak oleh hujan atau salju ringan (turun ≈80,8%, registered ≈58,7%)</li>
+              <li>Penyewaan naik di semua bulan pada 2012, dengan pertumbuhan terendah di Juni (≈41%)</li>
+            </ul>
+          </div><div class="col">
+            <h4>Langkah analisis</h4>
+            <ul class="flow one">
+              <li>Merumuskan tiga pertanyaan bisnis: jam sibuk, dampak cuaca, dan pertumbuhan tahunan</li>
+              <li>Membersihkan data penyewaan per jam dan harian</li>
+              <li>Mengelompokkan data: segmen waktu, tingkat permintaan harian, dan rentang suhu</li>
+              <li>Menganalisis di Jupyter Notebook</li>
+              <li>Menyajikan hasil dalam dashboard Streamlit</li>
+            </ul>
+          </div></div>
+        </details>
+      </article>
+
       <article class="card" style="--g:100% 100%">
-        <h3>Studi kasus bootcamp KarirNex</h3>
+        <div class="src">Bootcamp</div>
+        <h3>Studi kasus KarirNex</h3>
         <p>Proses analisis dari awal sampai akhir: data cleaning, exploratory data analysis, sampai dashboard interaktif, dengan Excel, SQL di Google BigQuery, Python di Google Colab, dan Power BI.</p>
         <div class="links"><a href="https://linkedin.com/in/izanafza">Lihat di LinkedIn ↗</a></div>
       </article>
@@ -166,7 +233,7 @@ footer{padding:2.5rem 0 3rem;font-size:.88rem;opacity:.65}
     <div class="skills">
       <div class="card"><h3>R</h3><p>Cleaning dan eksplorasi data, agregasi, serta visualisasi dasar seperti bar plot dan histogram.</p></div>
       <div class="card"><h3>SQL</h3><p>Query dan penataan data di Google BigQuery.</p></div>
-      <div class="card"><h3>Python</h3><p>Data cleansing dan analisis di Google Colab.</p></div>
+      <div class="card"><h3>Python</h3><p>Data cleansing dan analisis di Google Colab, serta dashboard interaktif dengan Streamlit.</p></div>
       <div class="card"><h3>Power BI</h3><p>Visualisasi data dan dashboard interaktif.</p></div>
       <div class="card"><h3>Microsoft Office</h3><p>Excel untuk formatting dan analisis data, serta penyusunan laporan.</p></div>
     </div>
