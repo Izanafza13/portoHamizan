@@ -214,11 +214,39 @@ footer{padding:2.5rem 0 3rem;font-size:.88rem;opacity:.65}
         </details>
       </article>
 
-      <article class="card" style="--g:100% 100%">
-        <div class="src">Bootcamp</div>
-        <h3>Studi kasus KarirNex</h3>
-        <p>Proses analisis dari awal sampai akhir: data cleaning, exploratory data analysis, sampai dashboard interaktif, dengan Excel, SQL di Google BigQuery, Python di Google Colab, dan Power BI.</p>
-        <div class="links"><a href="https://linkedin.com/in/izanafza">Lihat di LinkedIn ↗</a></div>
+            <article class="card" style="--g:100% 100%">
+        <div class="src">Proyek riset</div>
+        <h3>Klasifikasi kesesuaian lahan padi</h3>
+        <p>Dashboard Streamlit untuk mengklasifikasikan kesesuaian lahan sawah berdasarkan pH tanah, suhu tanah, dan kelembaban udara, dengan model Random Forest, MLP, serta Hybrid Soft Voting dan Stacking. Dilengkapi interpretabilitas SHAP dan LIME serta prediksi interaktif.</p>
+        <div class="tags"><span>Python</span><span>Streamlit</span><span>Machine Learning</span></div>
+        <div class="links"><a href="https://github.com/Izanafza13/tanahKlasifikasi_Riset">Lihat di GitHub ↗</a></div>
+        <details>
+          <summary>Lihat poin</summary>
+          <div class="pts"><div class="col">
+            <h4>Temuan</h4>
+            <div class="minis">
+              <div class="stat"><b>4</b><span>model dibandingkan</span></div>
+              <div class="stat"><b>3</b><span>fitur: pH, suhu tanah, kelembaban udara</span></div>
+              <div class="stat"><b>3</b><span>kelas kesesuaian lahan</span></div>
+            </div>
+            <ul class="flow one">
+              <li>Lahan diberi label rule-based: Sangat Cocok, Kurang Cocok, dan Tidak Cocok</li>
+              <li>Model dievaluasi dengan akurasi dan confusion matrix</li>
+              <li>Fitur paling berpengaruh dijelaskan dengan SHAP, dan prediksi per sampel dengan LIME</li>
+            </ul>
+          </div><div class="col">
+            <h4>Langkah analisis</h4>
+            <ul class="flow one">
+              <li>Upload data CSV dan pilih fitur</li>
+              <li>Statistik deskriptif data</li>
+              <li>Imputasi nilai kosong dengan KNN dan pelabelan rule-based</li>
+              <li>Split data, SMOTE, dan normalisasi</li>
+              <li>Pelatihan dan evaluasi model</li>
+              <li>Interpretasi model dengan SHAP dan LIME</li>
+              <li>Prediksi interaktif dari input manual</li>
+            </ul>
+          </div></div>
+        </details>
       </article>
     </div>
     <!-- TAMBAH proyek data analyst lain di sini (salin salah satu <article class="card">) -->
