@@ -56,8 +56,8 @@ section>.wrap::before{content:"";position:absolute;top:-2px;left:0;width:5rem;he
 .src{color:var(--lime);font-weight:700;font-size:.85rem;margin-bottom:.5rem}
 .card .tags{margin-top:1rem}
 
-/* Proyek: 3 kolom */
-.two{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem;align-items:stretch}
+/* Proyek: 2 kolom */
+.two{display:grid;grid-template-columns:repeat(2,1fr);gap:1rem;align-items:stretch}
 .two .card{display:flex;flex-direction:column}
 .two .card h3{font-size:clamp(1.4rem,2.2vw,1.75rem)}
 .two .card .tags{margin-bottom:1.2rem}
@@ -227,7 +227,7 @@ footer{padding:2.5rem 0 3rem;font-size:.88rem;opacity:.65}
         <h3>Klasifikasi kesesuaian lahan padi</h3>
         <p>Dashboard Streamlit untuk mengklasifikasikan kesesuaian lahan sawah berdasarkan pH tanah, suhu tanah, dan kelembaban udara, dengan model Random Forest, MLP, serta Hybrid Soft Voting dan Stacking. Dilengkapi interpretabilitas SHAP dan LIME serta prediksi interaktif.</p>
         <div class="tags"><span>Python</span><span>Streamlit</span><span>Machine Learning</span></div>
-        <div class="links"><a href="https://github.com/Izanafza13/tanahKlasifikasi_Riset">Lihat di GitHub ↗</a><a href="https://tanah-klasifikasi-riset.streamlit.app/">Lihat demo ↗</a></div>
+        <div class="links"><a href="https://github.com/Izanafza13/tanahKlasifikasi_Riset">Lihat di GitHub ↗</a></div>
         <button type="button" class="poin" data-open>Lihat poin</button>
         <dialog aria-label="Poin proyek klasifikasi kesesuaian lahan padi">
           <div class="inner">
@@ -254,6 +254,42 @@ footer{padding:2.5rem 0 3rem;font-size:.88rem;opacity:.65}
                 <li>Pelatihan dan evaluasi model</li>
                 <li>Interpretasi model dengan SHAP dan LIME</li>
                 <li>Prediksi interaktif dari input manual</li>
+              </ul>
+            </div></div>
+          </div>
+        </dialog>
+      </article>
+
+      <article class="card" style="--g:0% 0%">
+        <div class="src">Proyek akhir kelas Dicoding</div>
+        <h3>Segmentasi dan klasifikasi transaksi nasabah</h3>
+        <p>Clustering K-Means dan klasifikasi Decision Tree serta Random Forest pada 2.512 data transaksi keuangan, dilengkapi aplikasi Streamlit untuk eksplorasi dan prediksi.</p>
+        <div class="tags"><span>Python</span><span>scikit-learn</span><span>Streamlit</span></div>
+        <div class="links"><a href="https://github.com/Izanafza13/BMLP-Transaksi-Nasabah">Lihat di GitHub ↗</a><a href="https://bmlp-transaksi-nasabah.streamlit.app/">Lihat demo ↗</a></div>
+        <button type="button" class="poin" data-open>Lihat poin</button>
+        <dialog aria-label="Poin proyek segmentasi dan klasifikasi transaksi nasabah">
+          <div class="inner">
+            <div class="mhead"><h3>Segmentasi dan klasifikasi transaksi nasabah</h3><button type="button" class="x" data-close aria-label="Tutup">×</button></div>
+            <div class="pts"><div>
+              <h4>Temuan</h4>
+              <div class="minis">
+                <div class="stat"><b>1.945</b><span>baris bersih dari 2.512 transaksi</span></div>
+                <div class="stat"><b>≈0,572</b><span>silhouette score dengan k = 2</span></div>
+                <div class="stat"><b>980 / 965</b><span>ukuran dua cluster</span></div>
+              </div>
+              <ul class="flow">
+                <li>Cluster ternyata ditentukan oleh kota: kode lokasi 0 sampai 21 masuk Cluster 0, dan 22 sampai 42 masuk Cluster 1</li>
+                <li>Akurasi 100% pada Decision Tree dan Random Forest wajar, karena label berasal dari hasil clustering, bukan label nyata</li>
+                <li>Proyek ini demo pembelajaran dan tidak dapat dipakai untuk mendeteksi penipuan</li>
+              </ul>
+            </div><div>
+              <h4>Langkah analisis</h4>
+              <ul class="flow">
+                <li>Membersihkan data kosong, duplikat, kolom ID, IP, dan tanggal, serta outlier dengan IQR</li>
+                <li>Label encoding, standard scaling, dan binning usia menjadi Muda, Dewasa, dan Lansia</li>
+                <li>Clustering dengan K-Means</li>
+                <li>Klasifikasi dengan Decision Tree dan Random Forest, dengan GridSearchCV</li>
+                <li>Aplikasi Streamlit: eksplorasi data, hasil clustering, evaluasi model, dan prediksi satu transaksi</li>
               </ul>
             </div></div>
           </div>
